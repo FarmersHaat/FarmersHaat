@@ -1,0 +1,33 @@
+@import "../../css-config/mixins.scss";
+
+.main-header{
+    width: 100%;
+    z-index: 99;
+    padding: 1rem;
+    .header-content{
+        display: flex;
+        margin: 0 auto;
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: 80%;
+        
+        .logo{
+            font-weight: 800;
+            font-size: 2rem;
+            line-height: 3rem;
+            text-align: center;
+
+            color: #FDB620;
+
+            text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.14);
+        }
+
+        .center{
+            list-style-type: none;
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+}
