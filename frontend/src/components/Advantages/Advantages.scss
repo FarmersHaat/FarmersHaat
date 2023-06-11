@@ -35,7 +35,7 @@
             grid-template-rows: repeat(9,1fr);
             gap: 1rem;
 
-            @include md {
+            @include sm {
                 grid-template-columns: repeat(2,1fr);
                 grid-template-rows: repeat(5,1fr);
             }
