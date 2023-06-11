@@ -33,9 +33,9 @@ const Header = () => {
                     </ul>
                 )}
                 {isMenuBarOpen && (
-                    <ul className="right">
+                    <div className="right">
                         <button className="button">Sign In</button>
-                    </ul>
+                    </div>
                 )}
             </div>
         </div>

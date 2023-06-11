@@ -5,10 +5,13 @@ import Farmer from "../../assets/Farmer.png";
 
 import { Context } from "../../utils/context";
 
+import Products from "../Products/Products";
+
 const Home = () => {
     const { screenSize } = useContext(Context);
     return (
-        <div className="hero-section">
+        <div className="homepage">
+            <div className="hero-section">
             <div className="content">
                 <div className="text-content">
                     <h1 className="heading">
@@ -39,6 +42,8 @@ const Home = () => {
                     <img src={Farmer} alt="Farmer" />
                 </div>
             </div>
+            </div>
+            <Products />
         </div>
     );
 };
