@@ -1,10 +1,13 @@
 import "./Home.scss";
 
-import React from "react";
-import Farmer from '../../assets/Farmer.png'
+import React, { useContext } from "react";
+import Farmer from "../../assets/Farmer.png";
+
+import { Context } from "../../utils/context";
 
 const Home = () => {
-	return (
+    const { screenSize } = useContext(Context);
+    return (
         <div className="hero-section">
             <div className="content">
                 <div className="text-content">
@@ -18,15 +21,18 @@ const Home = () => {
                         and Omega-6 fatty acids, crucial for reducing the risk
                         of heart disease. It also contains disease-fighting
                         antioxidants, which the body cannot produce in
-						sufficient quantities through normal metabolism.
-						<br />
-						To maintain good health of your family, it is necessary to
-                        obtain these essential fats and antioxidants from food.
-                        Some experts argue that pure mustard oil surpasses olive
-                        oil due to its ideal fatty acid ratio, which is missing
-                        in olive oil. Furthermore, pure mustard oil has a high
-                        smoke point, making it an excellent choice for frying,
-                        with an added benefit of being more cost-effective.
+                        sufficient quantities through normal metabolism.
+                        <br />
+                        <br />
+                        {screenSize.width > 1024 &&
+                            `To maintain good health of your family, it is necessary
+                        to obtain these essential fats and antioxidants from
+                        food. Some experts argue that pure mustard oil surpasses
+                        olive oil due to its ideal fatty acid ratio, which is
+                        missing in olive oil. Furthermore, pure mustard oil has
+                        a high smoke point, making it an excellent choice for
+                        frying, with an added benefit of being more
+                        cost-effective.`}
                     </p>
                 </div>
                 <div className="image">
