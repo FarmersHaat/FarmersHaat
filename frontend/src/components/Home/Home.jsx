@@ -6,6 +6,7 @@ import Farmer from "../../assets/Farmer.png";
 import { Context } from "../../utils/context";
 
 import Products from "../Products/Products";
+import Advantages from "../Advantages/Advantages";
 
 const Home = () => {
     const { screenSize } = useContext(Context);
@@ -44,6 +45,7 @@ const Home = () => {
             </div>
             </div>
             <Products />
+            <Advantages />
         </div>
     );
 };

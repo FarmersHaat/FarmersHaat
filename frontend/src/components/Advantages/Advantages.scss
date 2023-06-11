@@ -1,0 +1,49 @@
+@import "../../css-config/mixins.scss";
+
+.advantages{
+    width: 100%;
+    padding: 4rem 0;
+
+    .content{
+        width: 90%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        gap: 2rem;
+        margin: 0 auto;
+
+        @include lg{
+            width: 80%;
+        }
+
+        .title{
+            text-align: center;
+            font-size: 1.3rem;
+            line-height: 2rem;
+            @include lg{
+                font-weight: 600;
+                font-size: 2.25rem;
+                line-height: 4rem;
+            }
+        }
+
+        .adv-grid{
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(1,1fr);
+            grid-template-rows: repeat(9,1fr);
+            gap: 1rem;
+
+            @include md {
+                grid-template-columns: repeat(2,1fr);
+                grid-template-rows: repeat(5,1fr);
+            }
+
+            @include xl{
+                grid-template-columns: repeat(3,1fr);
+                grid-template-rows: repeat(3,1fr);
+            }
+        }
+    }
+}
