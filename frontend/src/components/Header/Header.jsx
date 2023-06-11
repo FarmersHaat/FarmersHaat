@@ -16,7 +16,7 @@ const Header = () => {
                   <li>Cart</li>
               </ul>
               <ul className="right">
-                  <button>Sign In</button>
+                  <button className='button'>Sign In</button>
               </ul>
           </div>
       </div>
