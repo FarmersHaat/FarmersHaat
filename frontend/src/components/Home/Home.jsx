@@ -1,9 +1,15 @@
-import './Home.scss'
+import "./Home.scss";
 
-import React from 'react'
+import React from "react";
 
 const Home = () => {
-  return (<div>Home</div>);
-}
+	return (
+		<div className="hero-section">
+			<div className="text-content">
+				<div className="heading"></div>
+			</div>
+		</div>
+	);
+};
 
-export default Home
+export default Home;
