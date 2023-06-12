@@ -1,25 +1,28 @@
 import "./Product.scss";
 
-import MustartOilBottle from "../../../assets/Black Mustard Oil Bottle.png";
+import { useNavigate } from "react-router-dom";
 
-const Product = () => {
+const Product = ({ product }) => {
+    const navigate = useNavigate();
 
     return (
-        <div className="product-card">
+        <div
+            className="product-card"
+            onClick={() => navigate(`/FarmersHaat/product/${product.id}`)}
+        >
             <div className="thumbnail">
-                <img src={MustartOilBottle} alt="" />
+                <img
+                    src={
+                        process.env.REACT_APP_PRODUCTION_URL +
+                        product?.attributes.img.data[0].attributes.url
+                    }
+                    alt=""
+                />
             </div>
 
             <div className="product-details">
-                <span className="name">Black Mustard Oil - Wood Pressed</span>
-                <span className="desc">
-                    Pure and authentic, wood-pressed black mustard oil is
-                    derived from carefully selected seeds, crushed and pressed
-                    at low temperatures. It retains nutrients, a distinct aroma,
-                    and a robust flavor, perfect for enhancing culinary
-                    creations. Experience the richness of wood-pressed black
-                    mustard oil.
-                </span>
+                <span className="name">{product.attributes.title}</span>
+                <span className="desc">{product.attributes.desc}</span>
                 <button className="button">Buy Now →</button>
             </div>
         </div>

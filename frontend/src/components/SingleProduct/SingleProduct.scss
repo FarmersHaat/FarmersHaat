@@ -1,0 +1,153 @@
+@import "../../css-config/mixins.scss";
+
+.single-product-main-content {
+    margin: 20px 0;
+
+    @include md {
+        margin: 75px 0;
+    }
+
+    .layout {
+        max-width: calc(100% - 20px);
+        margin: 0 auto;
+
+        @include md {
+            max-width: 1200px;
+        }
+
+        .single-product-page {
+            display: flex;
+            flex-direction: column;
+
+            @include md {
+                flex-direction: row;
+            }
+
+            .left {
+                width: 100%;
+                background-color: #fff;
+                flex-shrink: 0;
+                padding: 1rem;
+                border-radius: 15px;
+
+                @include lg {
+                    width: 600px;
+                    height: 600px;
+                }
+
+                img {
+                    margin: 0 auto;
+                    display: block;
+                    height: 500px;
+                    @include md{
+                        height: 100%;
+
+                    }
+                }
+            }
+
+            .right {
+                display: flex;
+                flex-direction: column;
+                padding-top: 20px;
+
+                @include md {
+                    padding: 0 35px;
+                }
+
+                .name {
+                    font-size: 1.5rem;
+                    line-height: 28px;
+                    margin-bottom: 20px;
+                    font-weight: 600;
+
+                    @include md {
+                        font-size: 2.5rem;
+                        line-height: 3rem;
+                    }
+                }
+
+                .price {
+                    font-size: 24px;
+                    line-height: 32px;
+                    margin-bottom: 20px;
+                }
+
+                .desc {
+                    font-size: 14px;
+                    line-height: 20px;
+                    margin-bottom: 20px;
+                    color: #6b6b6b;
+
+                    @include md {
+                        font-size: 1.2rem;
+                        line-height: 2rem;
+                        margin-bottom: 20px;
+                    }
+                }
+
+                .cart-buttons {
+                    display: flex;
+
+                    @include md {
+                        margin-top: 30px;
+                    }
+
+                    .quantity-buttons {
+                        width: fit-content;
+                        display: flex;
+                        border: 2px solid rgba(0, 0, 0, 0.2);
+                        margin-right: 10px;
+                        height: 50px;
+
+                        span {
+                            font-size: 18px;
+                            width: 40px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            cursor: pointer;
+                            color: #6b6b6b;
+
+                            &:nth-child(1) {
+                                border-right: 2px solid rgba(0, 0, 0, 0.2);
+                            }
+
+                            &:nth-child(2) {
+                                width: 60px;
+                            }
+
+                            &:nth-child(3) {
+                                border-left: 2px solid rgba(0, 0, 0, 0.2);
+                            }
+                        }
+                    }
+
+                    .add-to-cart-button {
+                        outline: 0;
+                        border: 0;
+                        height: 50px;
+                        width: 180px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+                        font-size: 16px;
+                        color: white;
+                        background: #8e2de2;
+                        border-bottom: 3px solid #6516aa;
+                        flex-grow: 1;
+
+                        @include md {
+                            flex-grow: unset;
+                        }
+
+                        svg {
+                            margin-right: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

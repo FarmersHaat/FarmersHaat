@@ -1,21 +1,33 @@
-import './Products.scss';
+import "./Products.scss";
 
-import React from 'react'
-import Product from './Product/Product';
+import React from "react";
+import Product from "./Product/Product";
+import { useContext, useEffect } from "react";
+import { Context } from "../../utils/context";
+import { fetchData } from "../../utils/api";
 
 const Products = () => {
+    const { products, setProducts } = useContext(Context);
+
+    const getProducts = () => {
+        fetchData("/api/products?populate=*")
+            .then((res) => setProducts(res))
+            .catch((error) => console.log(error));
+    };
+
+    useEffect(() => {
+        getProducts();
+    },[]);
+
     return (
         <div className="product-container">
             <div className="products">
-                {/* {products?.data?.map((product) => { */}
-                {/* return ( */}
-                    <Product />
-                    <Product />
-                {/* ); */}
-                {/* })} */}
+                {products?.data?.map((product) => {
+                    return <Product key={product.id} product={product} />;
+                })}
             </div>
         </div>
     );
-}
+};
 
-export default Products
+export default Products;
