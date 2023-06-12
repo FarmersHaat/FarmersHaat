@@ -8,6 +8,7 @@ import { Context } from "../../utils/context";
 import Products from "../Products/Products";
 import Advantages from "../Advantages/Advantages";
 import AboutUs from "../About Us/AboutUs";
+import Tips from "../Tips/Tips";
 
 const Home = () => {
     const { screenSize } = useContext(Context);
@@ -48,6 +49,7 @@ const Home = () => {
             <Products />
             <Advantages />
             <AboutUs />
+            <Tips />
         </div>
     );
 };
