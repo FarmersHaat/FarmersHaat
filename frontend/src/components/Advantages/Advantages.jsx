@@ -1,11 +1,25 @@
 import "./Advantages.scss";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Advantage from "./Advantage/Advantage";
+import { fetchData } from "../../utils/api";
 
 const Advantages = () => {
+    const [benefits, setBenefits] = useState();
+    const getBenefits = async () => {
+        fetchData("/api/advantages?populate=*")
+            .then((data) => setBenefits(data))
+            .catch((error) => console.log(error));
+    };
+
+    useEffect(() => {
+        getBenefits();
+    }, []);
+    console.log(benefits);
+
     const heading = "Glowing Sking";
-    const desc = "Mustard oil promotes glowing skin through its moisturizing and antioxidant properties, nourishing and protecting the skin for a radiant complexion";
+    const desc =
+        "Mustard oil promotes glowing skin through its moisturizing and antioxidant properties, nourishing and protecting the skin for a radiant complexion";
 
     return (
         <div className="advantages">
@@ -15,15 +29,17 @@ const Advantages = () => {
                     Mustard Oil
                 </h1>
                 <div className="adv-grid">
-                    <Advantage heading={heading} desc={desc}/>
-                    <Advantage heading={heading} desc={desc}/>
-                    <Advantage heading={heading} desc={desc}/>
-                    <Advantage heading={heading} desc={desc}/>
-                    <Advantage heading={heading} desc={desc}/>
-                    <Advantage heading={heading} desc={desc}/>
-                    <Advantage heading={heading} desc={desc}/>
-                    <Advantage heading={heading} desc={desc}/>
-                    <Advantage heading={"sdjfajkfnakjsfnaskn njd ksadn naslf alskf adfans fdans fkasnf "} desc={desc} />
+                    {benefits?.data.map((benefit) => (
+                        <Advantage
+                            key={benefit.id}
+                            heading={benefit.attributes.title}
+                            desc={benefit.attributes.desc}
+                            icon={
+                                process.env.REACT_APP_PRODUCTION_URL +
+                                benefit.attributes.icon.data.attributes.url
+                            }
+                        />
+                    ))}
                 </div>
             </div>
         </div>

@@ -1,6 +1,7 @@
 import "./Product.scss";
 
 import { useNavigate } from "react-router-dom";
+import Bottle from '../../../assets/ProductImg/BlackOil.jpeg'
 
 const Product = ({ product }) => {
     const navigate = useNavigate();
@@ -13,8 +14,9 @@ const Product = ({ product }) => {
             <div className="thumbnail">
                 <img
                     src={
-                        process.env.REACT_APP_PRODUCTION_URL +
-                        product?.attributes.img.data[0].attributes.url
+                        // process.env.REACT_APP_PRODUCTION_URL +
+                        // product?.attributes.img.data[0].attributes.url
+                        Bottle
                     }
                     alt=""
                 />

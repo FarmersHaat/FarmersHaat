@@ -1,18 +1,13 @@
 import "./SingleProduct.scss";
 import { useParams, useLocation } from "react-router-dom";
 
-import {
-    FaFacebookF,
-    FaInstagram,
-    FaTwitter,
-    FaLinkedinIn,
-    FaPinterest,
-    FaCartPlus,
-} from "react-icons/fa";
+import { FaCartPlus } from "react-icons/fa";
 
 import useFetch from "../../hooks/useFetch";
 import { useContext, useEffect, useState } from "react";
 import { Context } from "../../utils/context";
+
+import Bottle from "../../assets/ProductImg/BlackOil.jpeg";
 
 const SingleProduct = () => {
     const location = useLocation();
@@ -30,7 +25,6 @@ const SingleProduct = () => {
     }, [location]);
 
     const { data } = useFetch(`/api/products?populate=*&[filters][id]=${id}`);
-    console.log(data);
 
     return (
         <div className="single-product-main-content">
@@ -39,9 +33,10 @@ const SingleProduct = () => {
                     <div className="left">
                         <img
                             src={
-                                process.env.REACT_APP_PRODUCTION_URL +
-                                data?.data?.[0]?.attributes?.img.data[0]
-                                    .attributes.url
+                                // process.env.REACT_APP_PRODUCTION_URL +
+                                // data?.data?.[0]?.attributes?.img.data[0]
+                                //     .attributes.url
+                                Bottle
                             }
                             alt=""
                         />
@@ -53,9 +48,21 @@ const SingleProduct = () => {
                         <div className="desc">
                             {data?.data?.[0]?.attributes?.desc}
                         </div>
-
                         <div className="price">
-                            &#8377; {data?.data?.[0]?.attributes?.price}
+                            <div className="saving">
+                                You Saved &#8377;
+                                {data?.data?.[0]?.attributes?.price -
+                                    data?.data?.[0]?.attributes?.discountedPrice}
+                            </div>
+                            &#8377;{" "}
+                            {data?.data?.[0]?.attributes?.discountedPrice}
+                            <span className="original-price">
+                                {"  "}&#8377;
+                                {data?.data?.[0]?.attributes?.price}
+                            </span>
+                            <span className="discount">
+                                {"   "+data?.data?.[0]?.attributes?.discount+"% off"}
+                            </span>
                         </div>
 
                         <div className="cart-buttons">

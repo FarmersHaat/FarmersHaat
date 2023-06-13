@@ -6,23 +6,29 @@ const AppContext = ({ children }) => {
 	const [screenSize, setScreenSize] = useState(getCurrentDimension());
 	const [showCart, setShowCart] = useState(false);
 	const [products, setProducts] = useState({ data: [] });
-	const [cartItems, setCartItems] = useState([]);
+	const [cartItems, setCartItems] = useState(
+			window.sessionStorage.getItem("cartItem") ?
+			JSON.parse(window.sessionStorage.getItem("cartItem")):
+			[]
+	);
 	const [cartCount, setCartCount] = useState(0);
 	const [cartSubtotal, setCartSubtotal] = useState(0);
+
+	console.log(cartItems);
 	
 	useEffect(() => {
 		let count = 0;
 		let subtotal  = 0;
 		cartItems.map(product => {
 			count += product.attributes.quantity;
-			subtotal += product.attributes.quantity * product.attributes.price;
+			subtotal += product.attributes.quantity * product.attributes.discountedPrice;
 		})
 
 		setCartCount(count);
 		setCartSubtotal(subtotal);
 	}, [cartItems]);
 	
-	const handleAddToCart = (product,quantity) => {
+	const handleAddToCart = (product, quantity) => {
 		let items = [...cartItems];
 		let index = items.findIndex(p => p.id === product.id);
 		if (index !== -1)
@@ -31,12 +37,15 @@ const AppContext = ({ children }) => {
 			product.attributes.quantity = quantity;
 			items = [...items, product];
 		}
+
+		window.sessionStorage.setItem("cartItem",JSON.stringify(items))
 		setCartItems(items);
 	}
 	
 	const handleRemoveFromCart = (product) => {
 		let items = [...cartItems];
 		items = items.filter(p => p.id !== product.id);
+		window.sessionStorage.setItem("cartItem",JSON.stringify(items))
 		setCartItems(items);
 	}
 	
@@ -52,6 +61,7 @@ const AppContext = ({ children }) => {
 			}
 			items[index].attributes.quantity -= 1;
 		}
+		window.sessionStorage.setItem("cartItem",JSON.stringify(items))
 		setCartItems(items);
 	}
 
