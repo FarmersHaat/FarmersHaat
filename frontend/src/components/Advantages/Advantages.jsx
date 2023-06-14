@@ -15,11 +15,6 @@ const Advantages = () => {
     useEffect(() => {
         getBenefits();
     }, []);
-    console.log(benefits);
-
-    const heading = "Glowing Sking";
-    const desc =
-        "Mustard oil promotes glowing skin through its moisturizing and antioxidant properties, nourishing and protecting the skin for a radiant complexion";
 
     return (
         <div className="advantages">
@@ -29,7 +24,7 @@ const Advantages = () => {
                     Mustard Oil
                 </h1>
                 <div className="adv-grid">
-                    {benefits?.data.map((benefit) => (
+                    {benefits?.data?.map((benefit) => (
                         <Advantage
                             key={benefit.id}
                             heading={benefit.attributes.title}

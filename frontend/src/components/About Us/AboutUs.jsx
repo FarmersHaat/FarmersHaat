@@ -2,9 +2,14 @@ import './AboutUs.scss'
 
 import React from 'react'
 
+import { useContext } from 'react';
+import { Context } from '../../utils/context';
 const AboutUs = () => {
+
+    const { aboutUsRef } = useContext(Context);
+
     return (
-        <div className="about">
+        <div className="about" ref={aboutUsRef}>
             <div className="content">
                 <div className="card">
                     <div className="heading">

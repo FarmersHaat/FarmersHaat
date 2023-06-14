@@ -1,22 +1,29 @@
 @import "../../css-config/mixins.scss";
 
-.main-header{
+.main-header {
     width: 100%;
     z-index: 99;
     padding: 1rem;
-    .header-content{
+    background-color: #282B32;
+    transition-duration: 300ms;
+
+    @include lg {
+        background-color: #F8F7F1;
+    }
+
+    .header-content {
         display: flex;
         margin: 0 auto;
         flex-direction: column;
         justify-content: space-between;
         max-width: 95%;
 
-        @include lg{
-            max-width:80%;
+        @include lg {
+            max-width: 80%;
             flex-direction: row;
         }
-        
-        .logo{
+
+        .logo {
             font-weight: 800;
             font-size: 1.4rem;
             line-height: 2rem;
@@ -24,36 +31,41 @@
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
-            align-content: center;
+            background-color: #282B32;
+            z-index: 99;
 
             color: #FDB620;
 
             text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.14);
             cursor: pointer;
 
-            @include lg{
+            @include lg {
+                background-color: #F8F7F1;
                 line-height: 3rem;
                 font-size: 2rem;
             }
 
-            .menu-button{
+            .menu-button {
                 height: 100%;
                 display: flex;
                 flex-direction: column;
-                @include lg{
+
+                @include lg {
                     display: none;
                 }
-                &:hover{
+
+                &:hover {
                     transform: scale(1.1);
                 }
 
-                &:active, &:focus{
-                    transform: scale(1);              
+                &:active,
+                &:focus {
+                    transform: scale(1);
                 }
             }
         }
 
-        .center{
+        .center {
             list-style-type: none;
             display: flex;
             flex-direction: column;
@@ -61,32 +73,38 @@
             justify-content: space-evenly;
             padding: 0.5rem;
             gap: 1rem;
-            
-            li{
+            animation-name: navbarAimation;
+            animation-duration: 300ms;
+
+            li {
                 font-size: 0.75rem;
                 font-weight: 600;
                 line-height: 1rem;
                 cursor: pointer;
+                color: #F8F7F1;
 
-                @include lg{
+                @include lg {
                     font-size: 1rem;
                     line-height: 1.5rem;
+                    color: #282B32;
                 }
             }
-            @include lg{
+
+            @include lg {
                 gap: 1.5rem;
                 flex-direction: row;
             }
-            
-            @include xl{
+
+            @include xl {
                 gap: 3rem;
             }
         }
 
-        .right{
+        .right {
             display: flex;
             justify-content: center;
-            button{
+
+            button {
                 padding: 0.8rem 1.5rem;
                 border-radius: 5px;
                 background-color: #FDB620;
@@ -99,20 +117,39 @@
                 cursor: pointer;
                 transition-duration: 300ms;
 
-                &:hover{
+                &:hover {
                     transform: scale(1.1);
                 }
 
-                &:active, &:focus{
+                &:active,
+                &:focus {
                     background-color: #cf9519;
-                    transform: scale(1);              
+                    transform: scale(1);
                 }
-                @include lg{
+
+                @include lg {
                     padding: 0.8rem 2rem;
                     font-size: 1rem;
                     line-height: 1.5rem;
                 }
             }
         }
+    }
+}
+
+@keyframes navbarAimation {
+    0% {
+        height: 0px;
+        opacity: 0;
+    }
+
+    50% {
+        height: 10vh;
+        opacity: 0.3;
+    }
+
+    100% {
+        height: calc(14vh);
+        opacity: 1;
     }
 }

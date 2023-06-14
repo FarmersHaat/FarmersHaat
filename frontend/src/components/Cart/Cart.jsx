@@ -6,29 +6,20 @@ import CartItem from "./CartItem/CartItem";
 import { useContext } from "react";
 import { Context } from "../../utils/context";
 
-// import { makePaymentRequest } from "../../utils/api";
-
-// import { loadStripe } from "@stripe/stripe-js";
+import { makePaymentRequest } from "../../utils/api";
 
 const Cart = ({ setShowCart }) => {
-    // const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
-    // console.log(process.env.REACT_APP_STRIPE_KEY);
-
     const { cartItems, cartSubtotal } = useContext(Context);
 
     const handlePayment = async () => {
-        // try {
-        //     const stripe = await stripePromise;
-        //     const res = await makePaymentRequest.post("/api/orders", {
-        //         products: cartItems,
-        //     });
-
-        //     await stripe.redirectToCheckout({
-        //         sessionId: res.data.stripeSession.id,
-        //     });
-        // } catch (error) {
-        //     console.log(error);
-        // }
+        try {
+            const { data } = await makePaymentRequest.post("/api/order", {
+                products: cartItems
+            });
+            console.log(data);
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     return (

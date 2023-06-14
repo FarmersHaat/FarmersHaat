@@ -7,7 +7,7 @@ import { Context } from "../../utils/context";
 import { fetchData } from "../../utils/api";
 
 const Products = () => {
-    const { products, setProducts } = useContext(Context);
+    const { products, setProducts , productRef } = useContext(Context);
 
     const getProducts = () => {
         fetchData("/api/products?populate=*")
@@ -20,7 +20,7 @@ const Products = () => {
     },[]);
 
     return (
-        <div className="product-container">
+        <div className="product-container" ref={productRef}>
             <div className="products">
                 {products?.data?.map((product) => {
                     return <Product key={product.id} product={product} />;

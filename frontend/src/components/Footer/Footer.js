@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { Context } from '../../utils/context'
 
 const Footer = () => {
+  const { footerRef } = useContext(Context);
   return (
-    <div>
+    <div ref={footerRef}>
       Footer
     </div>
   )

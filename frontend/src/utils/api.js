@@ -18,3 +18,8 @@ export const fetchData = async (url) => {
         return error;
     }
 }
+
+export const makePaymentRequest = axios.create({
+    baseURL: process.env.REACT_APP_DEV_URL,
+    headers : params.headers
+})

@@ -1,23 +1,40 @@
 import "./Header.scss";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { useState, useContext } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 
 import { Context } from "../../utils/context";
 import Cart from "../Cart/Cart";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
-    const { screenSize, cartCount, showCart, setShowCart } =
-        useContext(Context);
+    const navigate = useNavigate();
+    const {
+        screenSize,
+        cartCount,
+        showCart,
+        setShowCart,
+        productRef,
+    } = useContext(Context);
     const [isMenuBarOpen, setIsMenuBarOpen] = useState(screenSize.width > 1024);
+
+    useEffect(
+        () => setIsMenuBarOpen(screenSize.width > 1024),
+        [screenSize.width]
+    );
 
     return (
         <>
             <div className={"main-header"}>
                 <div className="header-content">
                     <div className="logo">
-                        <div className="heading">Farmers Haat</div>
+                        <div
+                            className="heading"
+                            onClick={() => navigate("/FarmersHaat/")}
+                        >
+                            Farmers Haat
+                        </div>
                         <div
                             className="menu-button"
                             onClick={() => {
@@ -33,10 +50,28 @@ const Header = () => {
                     </div>
                     {isMenuBarOpen && (
                         <ul className="center">
-                            <li>Product</li>
-                            <li>About Us</li>
-                            <li>Contact Us</li>
-                            <li>Cart</li>
+                            <li
+                                onClick={() => {
+                                    navigate("/FarmersHaat/products");
+                                }}
+                            >
+                                Product
+                            </li>
+                            <li
+                                onClick={() => {
+                                    navigate("/FarmersHaat/aboutus");
+                                }}
+                            >
+                                About Us
+                            </li>
+                            <li
+                                onClick={() => {
+                                    navigate("/FarmersHaat/footer");
+                                }}
+                            >
+                                Contact Us
+                            </li>
+                            <li onClick={() => setShowCart(!showCart)}>Cart</li>
                         </ul>
                     )}
                     {isMenuBarOpen && (

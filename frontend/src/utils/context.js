@@ -1,8 +1,14 @@
-import { createContext , useState , useEffect } from "react";
+import { createContext, useState, useEffect, useRef } from "react";
 
 export const Context = createContext();
 
 const AppContext = ({ children }) => {
+
+	const productRef = useRef(null);
+	const aboutUsRef = useRef(null);
+	const footerRef = useRef(null);
+
+
 	const [screenSize, setScreenSize] = useState(getCurrentDimension());
 	const [showCart, setShowCart] = useState(false);
 	const [products, setProducts] = useState({ data: [] });
@@ -13,8 +19,6 @@ const AppContext = ({ children }) => {
 	);
 	const [cartCount, setCartCount] = useState(0);
 	const [cartSubtotal, setCartSubtotal] = useState(0);
-
-	console.log(cartItems);
 	
 	useEffect(() => {
 		let count = 0;
@@ -99,7 +103,10 @@ const AppContext = ({ children }) => {
 			setCartSubtotal,
 			handleAddToCart,
 			handleRemoveFromCart,
-			handleCartProductQuantity
+			handleCartProductQuantity,
+			productRef,
+			footerRef,
+			aboutUsRef
 		}}>
             {children}
         </Context.Provider>
