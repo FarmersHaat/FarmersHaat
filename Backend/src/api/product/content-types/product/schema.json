@@ -4,7 +4,8 @@
   "info": {
     "singularName": "product",
     "pluralName": "products",
-    "displayName": "product"
+    "displayName": "product",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -21,20 +22,24 @@
       "type": "decimal"
     },
     "img": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
     "discount": {
       "type": "decimal"
     },
     "discountedPrice": {
       "type": "decimal"
+    },
+    "imgUrl": {
+      "type": "string"
     }
   }
 }
