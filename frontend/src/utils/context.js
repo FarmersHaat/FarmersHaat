@@ -7,6 +7,7 @@ const AppContext = ({ children }) => {
 	const productRef = useRef(null);
 	const aboutUsRef = useRef(null);
 	const footerRef = useRef(null);
+	const benefitsRef = useRef(null);
 
 
 	const [screenSize, setScreenSize] = useState(getCurrentDimension());
@@ -106,7 +107,8 @@ const AppContext = ({ children }) => {
 			handleCartProductQuantity,
 			productRef,
 			footerRef,
-			aboutUsRef
+			aboutUsRef,
+			benefitsRef
 		}}>
             {children}
         </Context.Provider>

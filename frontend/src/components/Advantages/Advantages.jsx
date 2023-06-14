@@ -1,10 +1,12 @@
 import "./Advantages.scss";
 
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Advantage from "./Advantage/Advantage";
 import { fetchData } from "../../utils/api";
+import { Context } from "../../utils/context";
 
 const Advantages = () => {
+    const { benefitsRef } = useContext(Context);
     const [benefits, setBenefits] = useState();
     const getBenefits = async () => {
         fetchData("/api/advantages?populate=*")
@@ -23,7 +25,7 @@ const Advantages = () => {
                     Discover the Health and Culinary Advantages of Wood-Pressed
                     Mustard Oil
                 </h1>
-                <div className="adv-grid">
+                <div className="adv-grid" ref={benefitsRef}>
                     {benefits?.data?.map((benefit) => (
                         <Advantage
                             key={benefit.id}

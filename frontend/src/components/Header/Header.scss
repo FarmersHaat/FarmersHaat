@@ -5,7 +5,6 @@
     z-index: 99;
     padding: 1rem;
     background-color: #282B32;
-    transition-duration: 300ms;
 
     @include lg {
         background-color: #F8F7F1;
@@ -72,18 +71,26 @@
             align-items: center;
             justify-content: space-evenly;
             padding: 0.5rem;
-            gap: 1rem;
             animation-name: navbarAimation;
             animation-duration: 300ms;
+            text-align: center;
 
             li {
-                font-size: 0.75rem;
-                font-weight: 600;
+                font-size: 0.9rem;
+                font-weight: 500;
                 line-height: 1rem;
+                width: 60%;
+                padding: 0.5rem;
                 cursor: pointer;
                 color: #F8F7F1;
+                border-bottom: 1px solid #4b4a4a;
 
                 @include lg {
+
+                    width: auto;
+                    padding: 0;
+                    animation-duration: 0ms;
+                    border-bottom: none;
                     font-size: 1rem;
                     line-height: 1.5rem;
                     color: #282B32;
@@ -105,17 +112,18 @@
             justify-content: center;
 
             button {
-                padding: 0.8rem 1.5rem;
+                padding: 0.8rem 2rem;
                 border-radius: 5px;
                 background-color: #FDB620;
                 border: none;
 
-                font-size: .8rem;
+                font-size: 1.5rem;
                 font-weight: 700;
                 line-height: 1rem;
                 color: #F8F7F1;
                 cursor: pointer;
                 transition-duration: 300ms;
+                position: relative;
 
                 &:hover {
                     transform: scale(1.1);
@@ -128,6 +136,7 @@
                 }
 
                 @include lg {
+                    animation-duration: 0ms;
                     padding: 0.8rem 2rem;
                     font-size: 1rem;
                     line-height: 1.5rem;

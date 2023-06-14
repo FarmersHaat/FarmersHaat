@@ -10,17 +10,16 @@ import { useContext } from 'react';
 
 function App() {
 
-    const { productRef, aboutUsRef, footerRef } = useContext(Context);
-
     return (
         <BrowserRouter>
             <Header />
             <Routes>
-                <Route path='/FarmersHaat/' element={<Home scrollTo={"none"}/>} />
-                <Route path='/FarmersHaat/products' element={<Home scrollTo={"products"}/>}/>
-                <Route path='/FarmersHaat/aboutus' element={<Home scrollTo={"aboutus"}/>}/>
-                <Route path='/FarmersHaat/footer' element={<Home scrollTo={"footer"}/>}/>
-                <Route path='/FarmersHaat/product/:id' element={<SingleProduct/>}/>
+                <Route path={`${process.env.REACT_APP_INITIAL_DOMAIN}/`} element={<Home scrollTo={"none"}/>} />
+                <Route path={`${process.env.REACT_APP_INITIAL_DOMAIN}/products`} element={<Home scrollTo={"products"}/>}/>
+                <Route path={`${process.env.REACT_APP_INITIAL_DOMAIN}/aboutus`} element={<Home scrollTo={"aboutus"}/>}/>
+                <Route path={`${process.env.REACT_APP_INITIAL_DOMAIN}/footer`} element={<Home scrollTo={"footer"} />} />
+                <Route path={`${process.env.REACT_APP_INITIAL_DOMAIN}/product/:id`} element={<SingleProduct/>}/>
+                <Route path={`${process.env.REACT_APP_INITIAL_DOMAIN}/benefits`} element={<Home scrollTo={"benefits"}/>}/>
             </Routes>
             <Footer />
         </BrowserRouter>

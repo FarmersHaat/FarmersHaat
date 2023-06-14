@@ -13,17 +13,20 @@ import { useLocation } from "react-router-dom";
 
 const Home = ({ scrollTo }) => {
     const location = useLocation();
-    const { screenSize, productRef, aboutUsRef, footerRef } =
+    const { screenSize, productRef, aboutUsRef, footerRef, benefitsRef } =
         useContext(Context);
 
-    useEffect((ref) => {
-        if (scrollTo === "products") handleScroll(productRef.current);
-        if (scrollTo === "aboutus") handleScroll(aboutUsRef.current);
-        if (scrollTo === "footer") handleScroll(footerRef.current);
-    }, [location]);
+    useEffect(
+        (ref) => {
+            if (scrollTo === "products") handleScroll(productRef.current);
+            if (scrollTo === "aboutus") handleScroll(aboutUsRef.current);
+            if (scrollTo === "footer") handleScroll(footerRef.current);
+            if (scrollTo === "benefits") handleScroll(benefitsRef.current);
+        },
+        [location]
+    );
 
     const handleScroll = (ref) => {
-        console.log(ref);
 
         window.scrollTo({
             top: ref?.offsetTop,
