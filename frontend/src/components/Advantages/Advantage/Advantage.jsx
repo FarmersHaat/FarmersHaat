@@ -3,7 +3,7 @@ import "./Advantage.scss";
 import React from "react";
 import GlowSkin from "../../../assets/Icons/skin.png";
 
-const Advantage = ({heading,desc,icon}) => {
+const Advantage = ({heading,desc,img}) => {
     return (
         <div className="advantage">
             <div className="content">
@@ -12,7 +12,7 @@ const Advantage = ({heading,desc,icon}) => {
                     <div className="desc">{desc}</div>
                 </div>
                 <div className="image">
-                    <img src={GlowSkin} alt="" />
+                    <img src={img} alt="" />
                 </div>
             </div>
         </div>

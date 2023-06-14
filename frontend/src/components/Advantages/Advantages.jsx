@@ -31,9 +31,8 @@ const Advantages = () => {
                             key={benefit.id}
                             heading={benefit.attributes.title}
                             desc={benefit.attributes.desc}
-                            icon={
-                                process.env.REACT_APP_PRODUCTION_URL +
-                                benefit.attributes.icon.data.attributes.url
+                            img={
+                                benefit.attributes.imgUrl
                             }
                         />
                     ))}

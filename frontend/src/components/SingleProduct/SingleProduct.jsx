@@ -34,12 +34,7 @@ const SingleProduct = () => {
                     <div className="single-product-page">
                         <div className="left">
                             <img
-                                src={
-                                    // process.env.REACT_APP_PRODUCTION_URL +
-                                    // data?.data?.[0]?.attributes?.img.data[0]
-                                    //     .attributes.url
-                                    Bottle
-                                }
+                                src={data?.data?.[0]?.attributes?.imgUrl}
                                 alt=""
                             />
                         </div>
