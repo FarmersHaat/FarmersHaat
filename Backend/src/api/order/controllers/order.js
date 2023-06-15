@@ -6,12 +6,13 @@ const { createCoreController } = require("@strapi/strapi").factories;
 module.exports = createCoreController("api::order.order", ({ strapi }) => ({
     async create(ctx) {
     const { products } = ctx.request.body;
-
+        
     const razorpay = new Razorpay({
         key_id: process.env.RAZORPAY_KEY_ID,
         key_secret: process.env.RAZORPAY_KEY_SECRET,
     });
-    console.log(razorpay);
+        
+    console.log("Checkpoint-1")
     try {
         const lineItems = await Promise.all(
             products.map(async (product) => {
@@ -21,7 +22,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
                 return {
                     name: item.title,
                     currency: "INR",
-                    amount: Math.round(item.price * 100),
+                    amount: Math.round(item.discountedPrice * 100),
                     quantity: product.attributes.quantity,
                 };
             })

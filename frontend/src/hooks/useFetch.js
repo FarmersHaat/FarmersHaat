@@ -15,7 +15,7 @@ const useFetch = (endpoint) => {
         makeAPIcall()
     },[endpoint])
 
-    return {data};
+    return { data };
 }
 
 export default useFetch;

@@ -9,7 +9,7 @@ const params = {
 export const fetchData = async (url) => {
     try {
         const { data } = await axios.get(
-            process.env.REACT_APP_DEV_URL + url,
+            process.env.REACT_APP_PRODUCTION_URL + url,
             params
         )
         return data;
