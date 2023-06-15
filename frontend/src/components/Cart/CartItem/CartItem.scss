@@ -7,14 +7,16 @@
         gap: 10px;
 
         .img-container {
-            background-color: rgba(0, 0, 0, 0.05);
+            background-color: #fff;
             width: 60px;
             height: 60px;
             flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
             img {
                 height: 100%;
-                width: 100%;
             }
         }
 

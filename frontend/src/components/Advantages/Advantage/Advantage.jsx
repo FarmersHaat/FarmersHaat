@@ -1,7 +1,6 @@
 import "./Advantage.scss";
 
 import React from "react";
-import GlowSkin from "../../../assets/Icons/skin.png";
 
 const Advantage = ({heading,desc,img}) => {
     return (

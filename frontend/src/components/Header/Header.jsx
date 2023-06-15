@@ -16,7 +16,6 @@ const Header = () => {
     const navigate = useNavigate();
     const {
         screenSize,
-        cartCount,
         showCart,
         setShowCart
     } = useContext(Context);

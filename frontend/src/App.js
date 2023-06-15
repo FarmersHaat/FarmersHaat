@@ -5,9 +5,6 @@ import Footer from './components/Footer/Footer';
 import Home from './components/Home/Home';
 import SingleProduct from './components/SingleProduct/SingleProduct';
 
-import { Context } from './utils/context';
-import { useContext } from 'react';
-
 function App() {
 
     return (

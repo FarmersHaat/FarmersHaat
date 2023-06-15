@@ -7,7 +7,6 @@ import useFetch from "../../hooks/useFetch";
 import { useContext, useEffect, useState } from "react";
 import { Context } from "../../utils/context";
 
-import Bottle from "../../assets/ProductImg/BlackOil.jpeg";
 import Loading from "../../assets/Loading Animation/1475.gif";
 
 const SingleProduct = () => {
@@ -46,12 +45,6 @@ const SingleProduct = () => {
                                 {data?.data?.[0]?.attributes?.desc}
                             </div>
                             <div className="price">
-                                <div className="saving">
-                                    You Saved &#8377;
-                                    {data?.data?.[0]?.attributes?.price -
-                                        data?.data?.[0]?.attributes
-                                            ?.discountedPrice}
-                                </div>
                                 &#8377;{" "}
                                 {data?.data?.[0]?.attributes?.discountedPrice}
                                 <span className="original-price">
@@ -63,6 +56,9 @@ const SingleProduct = () => {
                                         data?.data?.[0]?.attributes?.discount +
                                         "% off"}
                                 </span>
+                                <div className="saving">
+                                    Inclusive of taxes + Free Shipping
+                                </div>
                             </div>
 
                             <div className="cart-buttons">

@@ -1,7 +1,6 @@
 import "./Product.scss";
 
 import { useNavigate } from "react-router-dom";
-import Bottle from "../../../assets/ProductImg/BlackOil.jpeg";
 import { useContext } from "react";
 import { Context } from "../../../utils/context";
 
