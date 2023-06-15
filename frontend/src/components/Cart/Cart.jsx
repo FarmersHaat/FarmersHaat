@@ -28,9 +28,6 @@ const Cart = ({ setShowCart }) => {
                 products: cartItems,
             });
 
-            console.log(data);
-            console.log(process.env.REACT_APP_RAZORPAY_SECRET_KEY);
-
             const razorpay = await loadRazorpay();
 
             const initPayment = (data) => {
@@ -39,8 +36,8 @@ const Cart = ({ setShowCart }) => {
                     amount: data.amount,
                     currency: data.currency,
                     order_id: data.id,
+                    theme: '#FDB620',
                     handler: async (response) => {
-                        console.log(response);
                         const generatedSignature = hmacSHA256(
                             `${response.razorpay_order_id}|${response.razorpay_payment_id}`,
                             process.env.REACT_APP_RAZORPAY_SECRET_KEY
@@ -56,7 +53,6 @@ const Cart = ({ setShowCart }) => {
                         }
                     },
                 };
-                console.log(options);
                 const rzp1 = new razorpay(options);
                 rzp1.open();
             };
@@ -66,8 +62,6 @@ const Cart = ({ setShowCart }) => {
             console.log(error);
         }
     };
-
-    console.log(cartItems);
 
     return (
         <div className="cart-panel">
