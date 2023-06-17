@@ -20,7 +20,7 @@ const Cart = ({ setShowCart }) => {
         setCartItems([]);
         window.sessionStorage.setItem("cartItem", []);
         setShowCart(false);
-    }
+    };
 
     const handlePayment = async () => {
         try {
@@ -36,12 +36,21 @@ const Cart = ({ setShowCart }) => {
                     amount: data.amount,
                     currency: data.currency,
                     order_id: data.id,
-                    theme: '#FDB620',
+                    theme: "#FDB620",
                     handler: async (response) => {
                         const generatedSignature = hmacSHA256(
                             `${response.razorpay_order_id}|${response.razorpay_payment_id}`,
                             process.env.REACT_APP_RAZORPAY_SECRET_KEY
                         ).toString();
+
+                        // const resp = await makePaymentRequest.post(
+                        //     "/api/order/verify",
+                        //     {
+                        //         paymentData: response,
+                        //         userData: {},
+                        //         productData: cartItems,
+                        //     }
+                        // );
 
                         if (
                             generatedSignature === response.razorpay_signature

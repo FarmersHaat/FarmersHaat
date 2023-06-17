@@ -1,63 +1,66 @@
 @import "../../css-config/mixins.scss";
 
-.hero-section {
-    width: 100%;
-
-    .content {
-        display: flex;
-        flex-direction: column-reverse;
-        max-width: 95%;
-        margin: 0 auto;
-        padding: 1rem 0;
-
-        @include lg {
-            flex-direction: row;
-            max-width: 80%;
-            padding: 2rem 0.2rem;
-        }
-
-        .text-content {
-            width: 95%;
+.homepage{
+    transition-duration: 500ms;
+    .hero-section {
+        width: 100%;
+    
+        .content {
             display: flex;
-            flex-direction: column;
-            gap: 1rem;
-
-            @include lg {
-                width: 60%;
-            }
-            .heading {
-                font-weight: 700;
-                font-size: 2.25rem;
-                line-height: 3rem;
-                text-align: center;
-
-                @include lg {
-                    font-size: 3.375rem;
-                    line-height: 5.06rem;
-                    text-align: start;
-                }
-            }
-            .desc {
-                text-align: center;
-                @include lg {
-                    font-weight: 400;
-                    font-size: 1.125rem;
-                    line-height: 1.68rem;
-                    text-align: start;
-                }
-            }
-        }
-
-        .image {
-            width: 50%;
+            flex-direction: column-reverse;
+            max-width: 95%;
             margin: 0 auto;
+            padding: 1rem 0;
+    
             @include lg {
-                width: 40%;
-                display: block;
+                flex-direction: row;
+                max-width: 80%;
+                padding: 2rem 0.2rem;
             }
-
-            img {
-                width: 100%;
+    
+            .text-content {
+                width: 95%;
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+    
+                @include lg {
+                    width: 60%;
+                }
+                .heading {
+                    font-weight: 700;
+                    font-size: 2.25rem;
+                    line-height: 3rem;
+                    text-align: center;
+    
+                    @include lg {
+                        font-size: 3.375rem;
+                        line-height: 5.06rem;
+                        text-align: start;
+                    }
+                }
+                .desc {
+                    text-align: center;
+                    @include lg {
+                        font-weight: 400;
+                        font-size: 1.125rem;
+                        line-height: 1.68rem;
+                        text-align: start;
+                    }
+                }
+            }
+    
+            .image {
+                width: 50%;
+                margin: 0 auto;
+                @include lg {
+                    width: 40%;
+                    display: block;
+                }
+    
+                img {
+                    width: 100%;
+                }
             }
         }
     }

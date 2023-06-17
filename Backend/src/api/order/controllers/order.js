@@ -1,5 +1,6 @@
 "use strict";
 const Razorpay = require("razorpay");
+const crypto = require('crypto-js')
 
 const { createCoreController } = require("@strapi/strapi").factories;
 
@@ -37,21 +38,44 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
         
         const order = await razorpay.orders.create(options);
         
-        await strapi
-            .service("api::order.order")
-            .create({
-                data: {
-                    products,
-                    paymentID: order.id,
-                    email: order.email,
-                    phone: order.contact
-                }
-            });
         ctx.response.status = 200;
         return { data: order };
     }
     catch (error) {
         ctx.response.status = 500;
         return { error };
-    }},
+        }
+    },
+    
+    async verify(ctx) {
+        console.log("Checkpoint-2")
+        const { paymentData, userData, productData } = ctx.request.body.data;
+        const generateSign = crypto.HmacSHA256(
+            paymentData.razorpay_order_id + '|' + paymentData.razorpay_payment_id,
+            process.env.RAZORPAY_KEY_SECRET
+        ).toString();
+
+        if (generateSign === paymentData.razorpay_signature) {
+            await strapi
+                .service("api::order.order")
+                .create({
+                    data: {
+                        products,
+                        paymentID: order.id,
+                        email: order.email,
+                        phone: order.contact
+                    }
+                }).then(() =>{
+                    ctx.response.status = 200
+                    return "Successful";
+                }
+                ).catch(error => {
+                    console.log(error);
+                    ctx.response.status = 500;
+                    return "Unsuccessful";
+                })
+        }
+        ctx.response.status = 500;
+        return "Unverified Payment";
+    }
 }));

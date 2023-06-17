@@ -19,21 +19,19 @@ const Advantages = () => {
     }, []);
 
     return (
-        <div className="advantages">
+        <div className="advantages" ref={benefitsRef}>
             <div className="content">
                 <h1 className="title">
                     Discover the Health and Culinary Advantages of Wood-Pressed
                     Mustard Oil
                 </h1>
-                <div className="adv-grid" ref={benefitsRef}>
+                <div className="adv-grid">
                     {benefits?.data?.map((benefit) => (
                         <Advantage
                             key={benefit.id}
                             heading={benefit.attributes.title}
                             desc={benefit.attributes.desc}
-                            img={
-                                benefit.attributes.imgUrl
-                            }
+                            img={benefit.attributes.imgUrl}
                         />
                     ))}
                 </div>
