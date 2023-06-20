@@ -12,6 +12,8 @@ import { Context } from "../../utils/context";
 import Cart from "../Cart/Cart";
 import { useNavigate } from "react-router-dom";
 
+import Logo from "../../assets/Logo.png"
+
 const Header = () => {
     const navigate = useNavigate();
     const {
@@ -35,7 +37,7 @@ const Header = () => {
                             className="heading"
                             onClick={() => navigate(`${process.env.REACT_APP_INITIAL_DOMAIN}/`)}
                         >
-                            Farmers Haat
+                            <img src={Logo} alt="Farmers Haat Logo" />
                         </div>
                         <div
                             className="menu-button"
