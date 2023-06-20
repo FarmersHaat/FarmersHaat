@@ -64,7 +64,7 @@ The FarmersHaat project is licensed under the MIT License. Please see the LICENS
 ### Contact
 For any queries or issues related to the project, please contact:
 >Ashutosh Singh
-<br/>Email: ashusingh1417@gmail.com
-<br/>GitHub: @Ashu0Singh
+<br/>Email: [ashusingh1417@gmail.com](mailto:ashusingh1417@gmail.com)
+<br/>GitHub: [Ashu0Singh](https://github.com/Ashu0Singh)
 
 Please ensure to create an issue on GitHub for any project-related problems or suggestions.
