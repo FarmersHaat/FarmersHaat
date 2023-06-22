@@ -42,27 +42,30 @@ const Cart = ({ setShowCart }) => {
                             `${response.razorpay_order_id}|${response.razorpay_payment_id}`,
                             process.env.REACT_APP_RAZORPAY_SECRET_KEY
                         ).toString();
-
-                        const resp = await makePaymentRequest.post(
-                            "/api/order/verify",
-                            {
-                                paymentData: response,
-                                userData: {
-                                    email: "9455ashu@gmail.com",
-                                    phone: "7275462130"
-                                },
-                                productData: cartItems,
-                            }
-                        );
-
+                        
+                        console.log(response);
                         if (
                             generatedSignature === response.razorpay_signature
                         ) {
-                            clearCart();
-                            resp();
-                            navigate("/payment/verified");
-                        } else {
-                            navigate("/payment/unverified");
+                            await makePaymentRequest.post(
+                                "/api/order/verify",
+                                {
+                                    paymentData: response,
+                                    userData: {
+                                        email: "9455ashu@gmail.com",
+                                        phone: "7275462130"
+                                    },
+                                    productData: cartItems,
+                                }
+                            ).then((isVerified) => {
+                                if (isVerified) {
+                                    clearCart();
+                                    navigate("/payment/verified");
+                                }
+                                else {
+                                    navigate("/payment/unverified");
+                                }
+                            }).catch(error => console.log(error))
                         }
                     },
                 };

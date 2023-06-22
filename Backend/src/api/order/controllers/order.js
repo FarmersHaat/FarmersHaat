@@ -49,33 +49,33 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
     
     async verify(ctx) {
         console.log("Checkpoint-2")
-        const { paymentData, userData, productData } = ctx.request.body.data;
+        const { paymentData, userData, productData } = ctx.request.body;
         const generateSign = crypto.HmacSHA256(
             paymentData.razorpay_order_id + '|' + paymentData.razorpay_payment_id,
             process.env.RAZORPAY_KEY_SECRET
         ).toString();
-
         if (generateSign === paymentData.razorpay_signature) {
+            console.log("Checkpoint-3")
+
             await strapi
                 .service("api::order.order")
                 .create({
                     data: {
                         products: productData,
-                        paymentID: paymentData.id,
+                        paymentID: paymentData.razorpay_payment_id,
                         email: userData.email,
-                        phone: userData.contact
+                        phone: userData.phone
                     }
-                }).then(() =>{
+                }).then(() => {
+                    console.log("Checkpoint-4")
                     ctx.response.status = 200
-                    return "Successful";
+                    ctx.send("Order confirmed");
                 }
                 ).catch(error => {
                     console.log(error);
                     ctx.response.status = 500;
-                    return "Unsuccessful";
+                    ctx.send("Order Declined");
                 })
         }
-        ctx.response.status = 500;
-        return "Unverified Payment";
     }
 }));

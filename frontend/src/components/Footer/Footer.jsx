@@ -30,19 +30,24 @@ const Footer = () => {
 			[event.target.name]: event.target.value,
 		}));
 	};
+	console.log(process.env.REACT_APP_NODE_ENV);
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 		await axios
 			.post(
-				"http://localhost:1337/api/query/sendEmail",
+				(process.env.REACT_APP_NODE_ENV === "DEVELOPMENT"
+					? process.env.REACT_APP_DEV_URL
+					: process.env.REACT_APP_PRODUCTION_URL) + "/api/query/sendEmail/",
 				{ details: details },
 				params
 			)
-			.then((data) => setDetails({
-                name: "",
-                email: "",
-                query: "",
-            }))
+			.then((data) =>
+				setDetails({
+					name: "",
+					email: "",
+					query: "",
+				})
+			)
 			.catch((error) => console.log(error));
 	};
 

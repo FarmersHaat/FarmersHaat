@@ -4,7 +4,8 @@
   "info": {
     "singularName": "order",
     "pluralName": "orders",
-    "displayName": "order"
+    "displayName": "order",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -14,14 +15,18 @@
     "email": {
       "type": "email"
     },
-    "phone": {
-      "type": "biginteger"
-    },
     "products": {
       "type": "json"
     },
     "paymentID": {
-      "type": "text"
+      "type": "text",
+      "unique": true
+    },
+    "phone": {
+      "type": "string",
+      "maxLength": 10,
+      "minLength": 10,
+      "unique": false
     }
   }
 }
