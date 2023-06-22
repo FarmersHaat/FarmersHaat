@@ -60,10 +60,10 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
                 .service("api::order.order")
                 .create({
                     data: {
-                        products,
-                        paymentID: order.id,
-                        email: order.email,
-                        phone: order.contact
+                        products: productData,
+                        paymentID: paymentData.id,
+                        email: userData.email,
+                        phone: userData.contact
                     }
                 }).then(() =>{
                     ctx.response.status = 200

@@ -43,19 +43,23 @@ const Cart = ({ setShowCart }) => {
                             process.env.REACT_APP_RAZORPAY_SECRET_KEY
                         ).toString();
 
-                        // const resp = await makePaymentRequest.post(
-                        //     "/api/order/verify",
-                        //     {
-                        //         paymentData: response,
-                        //         userData: {},
-                        //         productData: cartItems,
-                        //     }
-                        // );
+                        const resp = await makePaymentRequest.post(
+                            "/api/order/verify",
+                            {
+                                paymentData: response,
+                                userData: {
+                                    email: "9455ashu@gmail.com",
+                                    phone: "7275462130"
+                                },
+                                productData: cartItems,
+                            }
+                        );
 
                         if (
                             generatedSignature === response.razorpay_signature
                         ) {
                             clearCart();
+                            resp();
                             navigate("/payment/verified");
                         } else {
                             navigate("/payment/unverified");
