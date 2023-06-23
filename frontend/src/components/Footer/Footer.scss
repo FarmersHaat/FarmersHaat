@@ -40,6 +40,7 @@
                 font-weight: 800;
                 font-size: 1.4rem;
                 line-height: 2rem;
+                width: 140px;
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
@@ -54,6 +55,9 @@
                 @include lg {
                     line-height: 3rem;
                     font-size: 2rem;
+                }
+                img{
+                    width: 100%;
                 }
             }
         }

@@ -28,7 +28,7 @@ const SingleProduct = () => {
 
     return (
         <div className="single-product-main-content">
-            {data != undefined ? (
+            {data !== undefined ? (
                 <div className="layout">
                     <div className="single-product-page">
                         <div className="left">
@@ -45,10 +45,10 @@ const SingleProduct = () => {
                                 {data?.data?.[0]?.attributes?.desc}
                             </div>
                             <div className="price">
-                                &#8377;{" "}
+                                ₹{" "}
                                 {data?.data?.[0]?.attributes?.discountedPrice}
                                 <span className="original-price">
-                                    {"  "}&#8377;
+                                    {"  "}₹
                                     {data?.data?.[0]?.attributes?.price}
                                 </span>
                                 <span className="discount">

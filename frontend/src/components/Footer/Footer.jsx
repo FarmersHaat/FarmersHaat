@@ -10,6 +10,8 @@ import {
 	FaPhoneAlt,
 } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import Logo from "../../assets/Logo.png";
+
 import axios from "axios";
 const Footer = () => {
 	const params = {
@@ -37,7 +39,8 @@ const Footer = () => {
 			.post(
 				(process.env.REACT_APP_NODE_ENV === "DEVELOPMENT"
 					? process.env.REACT_APP_DEV_URL
-					: process.env.REACT_APP_PRODUCTION_URL) + "/api/query/sendEmail/",
+					: process.env.REACT_APP_PRODUCTION_URL) +
+					"/api/query/sendEmail/",
 				{ details: details },
 				params
 			)
@@ -58,7 +61,9 @@ const Footer = () => {
 		<div className="footer" ref={footerRef}>
 			<div className="content">
 				<div className="textContent">
-					<div className="logo">Farmers haat</div>
+					<div className="logo">
+						<img src={Logo} alt="Farmers Haat"/>
+					</div>
 					<div className="desc">
 						If you have any concerns about your shipment, contact
 						our support team at care@farmershaat.com within 48 hours

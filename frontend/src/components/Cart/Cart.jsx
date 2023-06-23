@@ -13,124 +13,119 @@ import hmacSHA256 from "crypto-js/hmac-sha256";
 import { useNavigate } from "react-router-dom";
 
 const Cart = ({ setShowCart }) => {
-    const navigate = useNavigate();
-    const { cartItems, cartSubtotal, setCartItems } = useContext(Context);
+	const navigate = useNavigate();
+	const { cartItems, cartSubtotal, setCartItems } = useContext(Context);
 
-    const clearCart = () => {
-        setCartItems([]);
-        window.sessionStorage.setItem("cartItem", []);
-        setShowCart(false);
-    };
+	const clearCart = () => {
+		setCartItems([]);
+		window.sessionStorage.setItem("cartItem", []);
+		setShowCart(false);
+	};
 
-    const handlePayment = async () => {
-        try {
-            const { data } = await makePaymentRequest.post("/api/orders", {
-                products: cartItems,
-            });
+	const handlePayment = async () => {
+		try {
+			const { data } = await makePaymentRequest.post("/api/orders", {
+				products: cartItems,
+			});
 
-            const razorpay = await loadRazorpay();
+			const razorpay = await loadRazorpay();
 
-            const initPayment = (data) => {
-                const options = {
-                    key: process.env.REACT_APP_RAZORPAY_KEY_ID,
-                    amount: data.amount,
-                    currency: data.currency,
-                    order_id: data.id,
-                    theme: "#FDB620",
-                    handler: async (response) => {
-                        const generatedSignature = hmacSHA256(
-                            `${response.razorpay_order_id}|${response.razorpay_payment_id}`,
-                            process.env.REACT_APP_RAZORPAY_SECRET_KEY
-                        ).toString();
-                        
-                        console.log(response);
-                        if (
-                            generatedSignature === response.razorpay_signature
-                        ) {
-                            await makePaymentRequest.post(
-                                "/api/order/verify",
-                                {
-                                    paymentData: response,
-                                    userData: {
-                                        email: "9455ashu@gmail.com",
-                                        phone: "7275462130"
-                                    },
-                                    productData: cartItems,
-                                }
-                            ).then((isVerified) => {
-                                if (isVerified) {
-                                    clearCart();
-                                    navigate("/payment/verified");
-                                }
-                                else {
-                                    navigate("/payment/unverified");
-                                }
-                            }).catch(error => console.log(error))
-                        }
-                    },
-                };
-                const rzp1 = new razorpay(options);
-                rzp1.open();
-            };
+			const initPayment = (data) => {
+				const options = {
+					key: process.env.REACT_APP_RAZORPAY_KEY_ID,
+					amount: data.amount,
+					currency: data.currency,
+					order_id: data.id,
+					theme: "#FDB620",
+					handler: async (response) => {
+						const generatedSignature = hmacSHA256(
+							`${response.razorpay_order_id}|${response.razorpay_payment_id}`,
+							process.env.REACT_APP_RAZORPAY_SECRET_KEY
+						).toString();
 
-            initPayment(data.data);
-        } catch (error) {
-            console.log(error);
-        }
-    };
+						console.log(response);
+						if (
+							generatedSignature === response.razorpay_signature
+						) {
+							await makePaymentRequest
+								.post("/api/order/verify", {
+									paymentData: response,
+									userData: {
+										email: "9455ashu@gmail.com",
+										phone: "7275462130",
+									},
+									productData: cartItems,
+								})
+								.then((isVerified) => {
+									if (isVerified) {
+										clearCart();
+										navigate("/payment/verified");
+									} else {
+										navigate("/payment/unverified");
+									}
+								})
+								.catch((error) => console.log(error));
+						}
+					},
+				};
+				const rzp1 = new razorpay(options);
+				rzp1.open();
+			};
 
-    return (
-        <div className="cart-panel">
-            <div
-                className="opac-layer"
-                onClick={() => setShowCart(false)}
-            ></div>
-            <div className="card-content">
-                <div className="cart-header">
-                    <span className="heading">Shopping Cart</span>
-                    <span
-                        className="close-btn"
-                        onClick={() => setShowCart(false)}
-                    >
-                        <MdClose />
-                        <span className="text">Close</span>
-                    </span>
-                </div>
-                {cartItems?.[0] === undefined ? (
-                    <div className="empty-cart">
-                        <BsCartX />
-                        <span>No products in the cart.</span>
-                        <button
-                            className="return-cta"
-                            onClick={() => setShowCart(false)}
-                        >
-                            RETURN TO SHOP
-                        </button>
-                    </div>
-                ) : (
-                    <>
-                        <CartItem cartItems={cartItems} />
-                        <div className="cart-footer">
-                            <div className="subtotal">
-                                <span className="text">Subtotal : </span>
-                                <span className="text total">
-                                    &#8377;{cartSubtotal}
-                                </span>
-                            </div>
-                            <div className="button">
-                                <button
-                                    className="checkout-cta"
-                                    onClick={handlePayment}
-                                >
-                                    Checkout
-                                </button>
-                            </div>
-                        </div>
-                    </>
-                )}
-            </div>
-        </div>
-    );
+			initPayment(data.data);
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	return (
+		<div className="cart-panel">
+			<div
+				className="opac-layer"
+				onClick={() => setShowCart(false)}></div>
+			<div className="card-content">
+				<div className="cart-header">
+					<span className="heading">Shopping Cart</span>
+					<span
+						className="close-btn"
+						onClick={() => setShowCart(false)}>
+						<MdClose />
+						<span className="text">Close</span>
+					</span>
+				</div>
+				{cartItems?.[0] === undefined ? (
+					<div className="empty-cart">
+						<BsCartX />
+						<span>No products in the cart.</span>
+						<button
+							className="return-cta"
+							onClick={() => setShowCart(false)}>
+							RETURN TO SHOP
+						</button>
+					</div>
+				) : (
+					<>
+						<CartItem cartItems={cartItems} />
+						<div className="cart-footer">
+							<div className="subtotal">
+								<span className="text">Subtotal : </span>
+								<span className="text total">
+									₹{cartSubtotal}
+								</span>
+							</div>
+							<div className="button">
+								<button
+									className="checkout-cta"
+									onClick={handlePayment}>
+									Checkout
+								</button>
+							</div>
+						</div>
+					</>
+				)}
+			</div>
+		</div>
+	);
 };
 
 export default Cart;

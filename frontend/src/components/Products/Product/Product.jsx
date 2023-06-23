@@ -34,6 +34,12 @@ const Product = ({ product }) => {
                     Buy Now →
                 </button>
             </div>
+
+            <div className="offerPrice">
+                <div className="originalPrice">₹{product.attributes.price}</div>
+                <div className="currentPrice">₹{product.attributes.discountedPrice}</div>
+                <div className="quantity">1 litre</div>
+            </div>
         </div>
     );
 };
