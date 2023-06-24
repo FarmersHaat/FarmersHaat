@@ -3,8 +3,8 @@
 .main-header {
     width: 100%;
     z-index: 99;
-    padding: 1rem;
-    background-color: #282B32;
+    padding: 0.2rem 1rem;
+    background-color: #f7c760;
 
     @include lg {
         background-color: #F8F7F1;
@@ -27,7 +27,7 @@
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
-            background-color: #282B32;
+            background-color: #f7c760;
             z-index: 99;
             cursor: pointer;
 
@@ -41,7 +41,7 @@
             }
 
             .menu-button {
-                color:#FDB620;
+                color:#282B32;
                 font-size: 2rem;
                 height: 100%;
                 display: flex;
@@ -80,7 +80,7 @@
                 width: 60%;
                 padding: 0.5rem;
                 cursor: pointer;
-                color: #F8F7F1;
+                color: #282B32;
                 border-bottom: 1px solid #4b4a4a;
 
                 @include lg {
@@ -115,7 +115,7 @@
 
                 padding: 0.8rem 2rem;
                 border-radius: 5px;
-                background-color: #FDB620;
+                background-color: #282B32;
                 border: none;
                 max-height: 50px;
 
@@ -133,7 +133,7 @@
 
                 &:active,
                 &:focus {
-                    background-color: #cf9519;
+                    background-color: #1c1e23;
                     transform: scale(1);
                 }
 

@@ -5,11 +5,13 @@
 	flex-direction: column;
 	background: #ffffff;
 	border-radius: 25px;
-	padding: 2rem;
+	padding: 0.5rem;
 	@include md {
 		width: 100%;
 	}
 	@include sm {
+		padding: 2rem;
+
 		flex-direction: row;
 	}
 
@@ -95,8 +97,8 @@
         position: absolute;
         background-color:#fdb620;
         border-radius: 50%;
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
         display: flex;
         flex-direction: column;
         text-align: center;
@@ -104,11 +106,15 @@
         gap: 0.1rem;
         transform: rotate(-15deg);
         .originalPrice{
-            font-size: 1rem;
+            font-size: 0.9rem;
             text-decoration: line-through;
             font-weight: 600;
             color: #414141;
         }
+		.discount{
+			font-size: 1rem;
+			font-weight: 600;
+		}
         .currentPrice{
             font-size: 1.5rem;
             font-weight: 700;

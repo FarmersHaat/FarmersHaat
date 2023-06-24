@@ -2,8 +2,8 @@
 
 .footer {
     width: 100%;
-    background-color: #282B32;
-    color: #F8F7F1;
+    background-color: #f7c760;
+    color: #282B32;
     padding: 3rem 1rem;
 
     @include lg {
@@ -93,7 +93,7 @@
                 align-items: center;
                 padding: 0.8rem 0.8rem;
                 background: #FFFFFF;
-                border: 3px solid #FDB620;
+                border: 1px solid #282B32;
                 border-radius: 15px;
             }
 
@@ -106,7 +106,7 @@
                 width: max-content;
                 padding: 0.8rem 2rem;
                 border-radius: 5px;
-                background-color: #FDB620;
+                background-color: #282B32;
                 border: none;
 
                 font-size: 1rem;
