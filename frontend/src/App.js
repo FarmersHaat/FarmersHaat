@@ -4,6 +4,7 @@ import Header from  './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Home from './components/Home/Home';
 import SingleProduct from './components/SingleProduct/SingleProduct';
+import Description from './components/Description/Description';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
                 <Route path={`${process.env.REACT_APP_INITIAL_DOMAIN}/footer`} element={<Home scrollTo={"footer"} />} />
                 <Route path={`${process.env.REACT_APP_INITIAL_DOMAIN}/product/:id`} element={<SingleProduct/>}/>
                 <Route path={`${process.env.REACT_APP_INITIAL_DOMAIN}/benefits`} element={<Home scrollTo={"benefits"}/>}/>
+                <Route path={`${process.env.REACT_APP_INITIAL_DOMAIN}/desc`} element={<Description/>}/>
             </Routes>
             <Footer />
         </BrowserRouter>
