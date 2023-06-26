@@ -47,7 +47,7 @@ const Description = () => {
 						/>
 						<div className="name">Mr. Sanjay Batta</div>
 						<div className="position">
-							CEO, Framers Haat Agrotech
+							CEO, Farmers Haat Agrotech
 						</div>
 						<div className="education">BSc., LL.B</div>
 					</div>
