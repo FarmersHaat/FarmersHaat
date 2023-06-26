@@ -70,10 +70,10 @@ const Header = () => {
                             </li>
                             <li
                                 onClick={() => {
-                                    navigate(`${process.env.REACT_APP_INITIAL_DOMAIN}/aboutus`);
+                                    navigate(`${process.env.REACT_APP_INITIAL_DOMAIN}/desc`);
                                 }}
                             >
-                                About Us
+                                Company Profile
                             </li>
                             <li
                                 onClick={() => {

@@ -32,7 +32,6 @@ const Footer = () => {
 			[event.target.name]: event.target.value,
 		}));
 	};
-	console.log(process.env.REACT_APP_NODE_ENV);
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 		await axios
@@ -53,8 +52,6 @@ const Footer = () => {
 			)
 			.catch((error) => console.log(error));
 	};
-
-	console.log(details);
 
 	const { footerRef } = useContext(Context);
 	return (

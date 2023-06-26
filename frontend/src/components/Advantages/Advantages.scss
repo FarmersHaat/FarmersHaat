@@ -19,6 +19,8 @@
 
         .title{
             text-align: center;
+            width: 80%;
+            margin: 0 auto;
             font-size: 1.3rem;
             line-height: 2rem;
             @include lg{
