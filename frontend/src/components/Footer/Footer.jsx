@@ -71,7 +71,7 @@ const Footer = () => {
 						within 48 hours of receiving the products.
 						<br /> In the event of damaged or wrong products, you
 						can return them within 7 days of delivery by emailing
-						<a href="mailto:care@farmershaat.com">
+						{" "}<a href="mailto:care@farmershaat.com">
 							care@farmershaat.com
 						</a>{" "}
 						with photos of the invoice, product, and order number.
@@ -81,7 +81,7 @@ const Footer = () => {
 						<br /> For prepaid orders, refunds will be initiated
 						within 7 working days upon receiving the refund request.
 						To cancel an order before shipping, email
-						<a href="mailto:care@farmershaat.com">
+						{" "}<a href="mailto:care@farmershaat.com">
 							care@farmershaat.com
 						</a>{" "}
 						, and we'll assist you. Please refer to out{" "}
