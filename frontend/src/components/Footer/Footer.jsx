@@ -13,6 +13,7 @@ import { MdEmail } from "react-icons/md";
 import Logo from "../../assets/Logo.png";
 
 import axios from "axios";
+import { NavLink } from "react-router-dom";
 const Footer = () => {
 	const params = {
 		headers: {
@@ -59,22 +60,36 @@ const Footer = () => {
 			<div className="content">
 				<div className="textContent">
 					<div className="logo">
-						<img src={Logo} alt="Farmers Haat"/>
+						<img src={Logo} alt="Farmers Haat" />
 					</div>
 					<div className="desc">
 						If you have any concerns about your shipment, contact
-						our support team at care@farmershaat.com within 48 hours
-						of receiving the products.
+						our support team at{" "}
+						<a href="mailto:care@farmershaat.com">
+							care@farmershaat.com
+						</a>{" "}
+						within 48 hours of receiving the products.
 						<br /> In the event of damaged or wrong products, you
 						can return them within 7 days of delivery by emailing
-						care@farmershaat.com with photos of the invoice,
-						product, and order number. We will respond within 48
-						hours to arrange a replacement.
+						<a href="mailto:care@farmershaat.com">
+							care@farmershaat.com
+						</a>{" "}
+						with photos of the invoice, product, and order number.
+						We will respond within 48 hours to arrange a
+						replacement.
 						<br />
 						<br /> For prepaid orders, refunds will be initiated
 						within 7 working days upon receiving the refund request.
 						To cancel an order before shipping, email
-						care@farmershaat.com, and we'll assist you.
+						<a href="mailto:care@farmershaat.com">
+							care@farmershaat.com
+						</a>{" "}
+						, and we'll assist you. Please refer to out{" "}
+						<NavLink
+							to={`${process.env.REACT_APP_INITIAL_DOMAIN}/policy`}>
+							Privacy Policy
+						</NavLink>{" "}
+						for more information.
 					</div>
 				</div>
 
