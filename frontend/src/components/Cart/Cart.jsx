@@ -99,7 +99,10 @@ const Cart = ({ setShowCart }) => {
 						<span>No products in the cart.</span>
 						<button
 							className="return-cta"
-							onClick={() => setShowCart(false)}>
+							onClick={() => {
+								setShowCart(false);
+								navigate('/products');
+							}}>
 							RETURN TO SHOP
 						</button>
 					</div>

@@ -6,7 +6,8 @@ import Home from "./components/Home/Home";
 import SingleProduct from "./components/SingleProduct/SingleProduct";
 import Description from "./components/Description/Description";
 import PrivacyPolicy from "./components/Privacy/PrivacyPolicy";
-
+import PaymentVerified from "./components/PaymentVerify/PaymentVerified";
+import PaymentUnverified from "./components/PaymentVerify/PaymentUnverified";
 function App() {
 	return (
 		<BrowserRouter>
@@ -43,6 +44,14 @@ function App() {
 				<Route
 					path={`${process.env.REACT_APP_INITIAL_DOMAIN}/policy`}
 					element={<PrivacyPolicy />}
+				/>
+				<Route
+					path={`${process.env.REACT_APP_INITIAL_DOMAIN}/payment/verified`}
+					element={<PaymentVerified />}
+				/>
+				<Route
+					path={`${process.env.REACT_APP_INITIAL_DOMAIN}/payment/unverified`}
+					element={<PaymentUnverified />}
 				/>
 			</Routes>
 			<Footer />
