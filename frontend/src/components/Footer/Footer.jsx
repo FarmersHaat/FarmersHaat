@@ -71,7 +71,7 @@ const Footer = () => {
 						within 48 hours of receiving the products.
 						<br /> In the event of damaged or wrong products, you
 						can return them within 7 days of delivery by emailing
-						{" "}<a href="mailto:care@farmershaat.com">
+						{" "}k<a href="mailto:care@farmershaat.com">
 							care@farmershaat.com
 						</a>{" "}
 						with photos of the invoice, product, and order number.
