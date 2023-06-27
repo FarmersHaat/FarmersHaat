@@ -11,10 +11,13 @@ import {
 } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import Logo from "../../assets/Logo.png";
+import UseAnimations from "react-useanimations"
+import loading from "react-useanimations/lib/loading"
 
 import axios from "axios";
 import { NavLink } from "react-router-dom";
 const Footer = () => {
+	const [isLoading, setIsLoading] = useState(false);
 	const params = {
 		headers: {
 			Authorization: `bearer ${process.env.REACT_APP_STRAPI_APP}`,
@@ -35,6 +38,7 @@ const Footer = () => {
 	};
 	const handleSubmit = async (event) => {
 		event.preventDefault();
+		setIsLoading(true);
 		await axios
 			.post(
 				(process.env.REACT_APP_NODE_ENV === "DEVELOPMENT"
@@ -44,14 +48,18 @@ const Footer = () => {
 				{ details: details },
 				params
 			)
-			.then((data) =>
+			.then((data) => {
 				setDetails({
 					name: "",
 					email: "",
 					query: "",
-				})
-			)
-			.catch((error) => console.log(error));
+				});
+				setIsLoading(false);
+			})
+			.catch((error) => {
+				console.log(error);
+				setIsLoading(false);
+			});
 	};
 
 	const { footerRef } = useContext(Context);
@@ -70,8 +78,8 @@ const Footer = () => {
 						</a>{" "}
 						within 48 hours of receiving the products.
 						<br /> In the event of damaged or wrong products, you
-						can return them within 7 days of delivery by emailing
-						{" "}<a href="mailto:care@farmershaat.com">
+						can return them within 7 days of delivery by emailing{" "}
+						<a href="mailto:care@farmershaat.com">
 							care@farmershaat.com
 						</a>{" "}
 						with photos of the invoice, product, and order number.
@@ -80,8 +88,8 @@ const Footer = () => {
 						<br />
 						<br /> For prepaid orders, refunds will be initiated
 						within 7 working days upon receiving the refund request.
-						To cancel an order before shipping, email
-						{" "}<a href="mailto:care@farmershaat.com">
+						To cancel an order before shipping, email{" "}
+						<a href="mailto:care@farmershaat.com">
 							care@farmershaat.com
 						</a>{" "}
 						, and we'll assist you. Please refer to out{" "}
@@ -90,6 +98,16 @@ const Footer = () => {
 							Privacy Policy
 						</NavLink>{" "}
 						for more information.
+						<br />
+						<br />
+						<strong>Address</strong>
+						<div className="address">
+							33, Cantt Road,
+							<br />
+							1st Floor (Above Bank of Baroda)
+							<br />
+							Lucknow - 226001
+						</div>
 					</div>
 				</div>
 
@@ -121,10 +139,11 @@ const Footer = () => {
 						onChange={handleChange}
 					/>
 					<button
+						disabled={isLoading}
 						type="submit"
 						className="submit"
 						onClick={handleSubmit}>
-						Submit
+						{isLoading ? <UseAnimations animation={loading} strokeColor="#F8F7F1"/> : "Submit"}
 					</button>
 				</div>
 

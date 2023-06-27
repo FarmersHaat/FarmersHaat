@@ -7,6 +7,9 @@
         gap: 3rem;
         max-width: 95%;
         margin: 0 auto;
+        .loading{
+            margin: 0 auto;
+        }
         @include md{
             max-width: 80%;
             gap: 20px;

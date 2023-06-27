@@ -18,10 +18,15 @@ const Home = ({ scrollTo }) => {
 
     useEffect(
         (ref) => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+            });
             if (scrollTo === "products") handleScroll(productRef.current);
             if (scrollTo === "aboutus") handleScroll(aboutUsRef.current);
             if (scrollTo === "footer") handleScroll(footerRef.current);
             if (scrollTo === "benefits") handleScroll(benefitsRef.current);
+
         },
         [location]
     );
@@ -44,7 +49,7 @@ const Home = ({ scrollTo }) => {
                         <p className="desc">
                             We are committed to provide your family cooking
                             medium with the utmost purity and honesty to the
-                            core - Believe us. Pure mustard oil offers the ideal
+                            core - <strong>Believe us</strong>.<br /> Pure mustard oil offers the ideal
                             balance of Omega-3 and Omega-6 fatty acids, crucial
                             for reducing the risk of heart disease. It also
                             contains disease-fighting antioxidants, which the
