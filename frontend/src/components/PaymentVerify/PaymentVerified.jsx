@@ -1,20 +1,25 @@
-import './PaymentStatus.scss'
+import "./PaymentStatus.scss";
 
-import React from "react";
-import { useNavigate } from "react-router-dom";
-
+import React, { useContext } from "react";
+import { useNavigate, Navigate } from "react-router-dom";
+import { Context } from "../../utils/context";
 
 const PaymentVerified = () => {
+	const { transactionID } = useContext(Context);
 	const navigate = useNavigate();
-	return (
+	return transactionID ? (
 		<div className="payment">
 			<div className="content">
 				<div className="card">
 					<div className="title">Your order have been received</div>
-					<img src="https://img.icons8.com/office/80/checked--v2.png" className="paymentStatus" alt="" />
+					<img
+						src="https://img.icons8.com/office/80/checked--v2.png"
+						className="paymentStatus"
+						alt=""
+					/>
 					<div className="subtext">Thank you for your purchase !</div>
 					<div className="refernceNumber">
-						Your Order code is : 1234567890
+						Your payment id is : {transactionID}
 					</div>
 					<div className="text">
 						You will receive an order confirmation email with
@@ -26,6 +31,8 @@ const PaymentVerified = () => {
 				</div>
 			</div>
 		</div>
+	) : (
+		<Navigate to="/products" replace />
 	);
 };
 

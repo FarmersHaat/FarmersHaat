@@ -20,6 +20,7 @@ const AppContext = ({ children }) => {
 	);
 	const [cartCount, setCartCount] = useState(0);
 	const [cartSubtotal, setCartSubtotal] = useState(0);
+	const [transactionID, setTransactionID] = useState(null);;
 	
 	useEffect(() => {
 		let count = 0;
@@ -101,6 +102,8 @@ const AppContext = ({ children }) => {
 			cartSubtotal,
 			showCart , 
 			setShowCart,
+			transactionID,
+			setTransactionID,
 			setCartSubtotal,
 			handleAddToCart,
 			handleRemoveFromCart,

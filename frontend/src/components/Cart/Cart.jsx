@@ -14,7 +14,8 @@ import { useNavigate } from "react-router-dom";
 
 const Cart = ({ setShowCart }) => {
 	const navigate = useNavigate();
-	const { cartItems, cartSubtotal, setCartItems } = useContext(Context);
+	const { cartItems, cartSubtotal, setCartItems, setTransactionID } =
+		useContext(Context);
 
 	const clearCart = () => {
 		setCartItems([]);
@@ -57,6 +58,9 @@ const Cart = ({ setShowCart }) => {
 									productData: cartItems,
 								})
 								.then((isVerified) => {
+									setTransactionID(
+										response.razorpay_payment_id
+									);
 									if (isVerified) {
 										clearCart();
 										navigate("/payment/verified");
@@ -101,7 +105,7 @@ const Cart = ({ setShowCart }) => {
 							className="return-cta"
 							onClick={() => {
 								setShowCart(false);
-								navigate('/products');
+								navigate("/products");
 							}}>
 							RETURN TO SHOP
 						</button>
