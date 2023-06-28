@@ -3,7 +3,8 @@ import { MdClose } from "react-icons/md";
 import { BsCartX } from "react-icons/bs";
 
 import CartItem from "./CartItem/CartItem";
-import { useContext } from "react";
+import CheckoutForm from "./CheckoutForm/CheckoutForm";
+import { useContext, useState } from "react";
 import { Context } from "../../utils/context";
 
 import { makePaymentRequest } from "../../utils/api";
@@ -17,13 +18,15 @@ const Cart = ({ setShowCart }) => {
 	const { cartItems, cartSubtotal, setCartItems, setTransactionID } =
 		useContext(Context);
 
+	const [ isOpenCheckout, setIsOpenCheckout ] = useState(false);
+
 	const clearCart = () => {
 		setCartItems([]);
 		window.sessionStorage.setItem("cartItem", []);
 		setShowCart(false);
 	};
 
-	const handlePayment = async () => {
+	const handlePayment = async (userData) => {
 		try {
 			const { data } = await makePaymentRequest.post("/api/orders", {
 				products: cartItems,
@@ -43,18 +46,13 @@ const Cart = ({ setShowCart }) => {
 							`${response.razorpay_order_id}|${response.razorpay_payment_id}`,
 							process.env.REACT_APP_RAZORPAY_SECRET_KEY
 						).toString();
-
-						console.log(response);
 						if (
 							generatedSignature === response.razorpay_signature
 						) {
 							await makePaymentRequest
 								.post("/api/order/verify", {
 									paymentData: response,
-									userData: {
-										email: "9455ashu@gmail.com",
-										phone: "7275462130",
-									},
+									userData: userData,
 									productData: cartItems,
 								})
 								.then((isVerified) => {
@@ -82,7 +80,12 @@ const Cart = ({ setShowCart }) => {
 		}
 	};
 
-	return (
+	return isOpenCheckout ? (
+		<CheckoutForm
+			handlePayment={handlePayment}
+			setIsOpenCheckout={setIsOpenCheckout}
+		/>
+	) : (
 		<div className="cart-panel">
 			<div
 				className="opac-layer"
@@ -123,7 +126,9 @@ const Cart = ({ setShowCart }) => {
 							<div className="button">
 								<button
 									className="checkout-cta"
-									onClick={handlePayment}>
+									onClick={() => {
+										setIsOpenCheckout(true);
+									}}>
 									Checkout
 								</button>
 							</div>

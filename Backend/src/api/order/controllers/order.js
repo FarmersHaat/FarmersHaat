@@ -64,7 +64,13 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
                         products: productData,
                         paymentID: paymentData.razorpay_payment_id,
                         email: userData.email,
-                        phone: userData.phone
+                        phone: userData.contact,
+                        firstname: userData.firstname,
+                        lastname: userData.lastname,
+                        address: userData.address,
+                        zipcode: userData.zipcode,
+                        city: userData.city,
+                        state: userData.state
                     }
                 }).then(() => {
                     console.log("Checkpoint-4")
@@ -75,7 +81,22 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
                     console.log(error);
                     ctx.response.status = 500;
                     ctx.send("Order Declined");
+                });
+            
+            try {
+                await strapi.plugins['email'].services.email.send({
+                    to: userData.email,
+                    from: 'care@farmershaat.com',
+                    replyTo: 'care@farmershaat.com',
+                    subject: `Hello ${userData.firstname}, we've recieved your order!.`,
+                    text: `Dear ${userData.firstname},\nThank yout for shopping from Farmers Haat\nYour order has been confirmed and will be deliverd shortly.\nOrder Id : ${paymentData.razorpay_order_id}\nWith Regard,\nFarmers Haat,\nwww.farmershaat.com`
                 })
+                ctx.send("Email Sent!");
+            }
+            catch (error) {
+                ctx.response.status = 500;
+                return { error };
+            }
         }
     }
 }));
