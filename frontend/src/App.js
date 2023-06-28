@@ -26,8 +26,8 @@ function App() {
 					element={<Home scrollTo={"aboutus"} />}
 				/>
 				<Route
-					path={`${process.env.REACT_APP_INITIAL_DOMAIN}/footer`}
-					element={<Home scrollTo={"footer"} />}
+					path={`${process.env.REACT_APP_INITIAL_DOMAIN}/contactus`}
+					element={<Home scrollTo={"contactus"} />}
 				/>
 				<Route
 					path={`${process.env.REACT_APP_INITIAL_DOMAIN}/product/:id`}

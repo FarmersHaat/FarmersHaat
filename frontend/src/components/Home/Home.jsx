@@ -24,7 +24,7 @@ const Home = ({ scrollTo }) => {
             });
             if (scrollTo === "products") handleScroll(productRef.current);
             if (scrollTo === "aboutus") handleScroll(aboutUsRef.current);
-            if (scrollTo === "footer") handleScroll(footerRef.current);
+            if (scrollTo === "contactus") handleScroll(footerRef.current);
             if (scrollTo === "benefits") handleScroll(benefitsRef.current);
 
         },

@@ -19,7 +19,10 @@
         text-align: center;
         gap: 1rem;
         padding: 1rem;
-
+        transition-duration: 300ms;
+        &:hover{
+            transform: scale(1.02);
+        }
         .title {
 
             font-size: 1.25rem;

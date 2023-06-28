@@ -15,8 +15,12 @@ import UseAnimations from "react-useanimations";
 import loading from "react-useanimations/lib/loading";
 
 import axios from "axios";
-import { NavLink } from "react-router-dom";
+import { NavLink, useAsyncValue, useNavigate } from "react-router-dom";
+
+
+
 const Footer = () => {
+	const navigate = useNavigate();
 	const [isLoading, setIsLoading] = useState(false);
 	const params = {
 		headers: {
@@ -68,7 +72,15 @@ const Footer = () => {
 			<div className="content">
 				<div className="textContent">
 					<div className="logo">
-						<img src={Logo} alt="Farmers Haat" />
+						<img
+							src={Logo}
+							alt="Farmers Haat"
+							onClick={() =>
+								navigate(
+									`${process.env.REACT_APP_INITIAL_DOMAIN}/`
+								)
+							}
+						/>
 					</div>
 					<div className="desc">
 						If you have any concerns about your shipment, contact
