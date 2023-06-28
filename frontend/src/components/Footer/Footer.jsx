@@ -6,13 +6,13 @@ import {
 	FaInstagram,
 	FaFacebook,
 	FaTwitter,
-	FaYoutube,
+	FaWhatsapp,
 	FaPhoneAlt,
 } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import Logo from "../../assets/Logo.png";
-import UseAnimations from "react-useanimations"
-import loading from "react-useanimations/lib/loading"
+import UseAnimations from "react-useanimations";
+import loading from "react-useanimations/lib/loading";
 
 import axios from "axios";
 import { NavLink } from "react-router-dom";
@@ -100,8 +100,10 @@ const Footer = () => {
 						for more information.
 						<br />
 						<br />
-						<strong>Address</strong>
+						<strong>Marketing Office</strong>
 						<div className="address">
+							Farmers Haat Agrotech
+							<br />
 							33, Cantt Road,
 							<br />
 							1st Floor (Above Bank of Baroda)
@@ -143,7 +145,14 @@ const Footer = () => {
 						type="submit"
 						className="submit"
 						onClick={handleSubmit}>
-						{isLoading ? <UseAnimations animation={loading} strokeColor="#F8F7F1"/> : "Submit"}
+						{isLoading ? (
+							<UseAnimations
+								animation={loading}
+								strokeColor="#F8F7F1"
+							/>
+						) : (
+							"Submit"
+						)}
 					</button>
 				</div>
 
@@ -151,7 +160,9 @@ const Footer = () => {
 					<FaFacebook />
 					<FaInstagram />
 					<FaTwitter />
-					<FaYoutube />
+					<a href="https://wa.me/7275462130">
+						<FaWhatsapp />
+					</a>
 					<MdEmail />
 					<FaPhoneAlt />
 				</div>
