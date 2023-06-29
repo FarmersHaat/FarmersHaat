@@ -184,8 +184,11 @@ const Footer = () => {
 					<FaFacebook />
 					<FaInstagram />
 					<FaTwitter />
-					<a href="https://wa.me/7275462130">
+					<a href="https://wa.me/">
 						<FaWhatsapp />
+					</a>
+					<a href="mailto:care@farmershaat.com">
+						<MdEmail />
 					</a>
 					<MdEmail />
 					<FaPhoneAlt />
