@@ -2,14 +2,6 @@ import "./Footer.scss";
 
 import React, { useContext, useState } from "react";
 import { Context } from "../../utils/context";
-import {
-	FaInstagram,
-	FaFacebook,
-	FaTwitter,
-	FaWhatsapp,
-	FaPhoneAlt,
-} from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
 import Logo from "../../assets/Logo.png";
 import UseAnimations from "react-useanimations";
 import loading from "react-useanimations/lib/loading";
@@ -181,18 +173,44 @@ const Footer = () => {
 				</div>
 
 				<div className="socialMedia">
-					<FaFacebook />
-					<FaInstagram />
-					<FaTwitter />
-					<a href="https://wa.me/">
-						<FaWhatsapp />
+					<img
+						width="40"
+						height="40"
+						src="https://img.icons8.com/fluency/48/facebook-new.png"
+						alt="facebook-new"
+					/>
+					<img
+						width="40"
+						height="40"
+						src="https://img.icons8.com/fluency/48/instagram-new.png"
+						alt="instagram-new"
+					/>
+					<img
+						width="40"
+						height="40"
+						src="https://img.icons8.com/color/96/twitter--v1.png"
+						alt="twitter--v1"
+					/>
+					<a href="https://wa.me/9839011027">
+						<img
+							width="40"
+							height="40"
+							src="https://img.icons8.com/color/96/whatsapp--v1.png"
+							alt="whatsapp--v1"
+						/>
 					</a>
 					<a href="mailto:care@farmershaat.com">
-						<MdEmail />
+						<img
+							width="40"
+							height="40"
+							src="https://img.icons8.com/color/96/gmail-new.png"
+							alt="gmail-new"
+						/>
 					</a>
-					<MdEmail />
-					<FaPhoneAlt />
 				</div>
+			</div>
+			<div className="copyright">
+				Copyright © 2023. All rights reserve to Framers Haat Agrotech
 			</div>
 		</div>
 	);

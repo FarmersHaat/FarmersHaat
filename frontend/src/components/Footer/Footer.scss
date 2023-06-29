@@ -4,11 +4,7 @@
 	width: 100%;
 	background-color: #f7c760;
 	color: #282b32;
-	padding: 3rem 1rem;
-
-	@include lg {
-		padding: 3rem 1rem;
-	}
+	padding-top: 3rem;
 
 	.content {
 		width: 95%;
@@ -155,5 +151,13 @@
 				flex-direction: column;
 			}
 		}
+	}
+
+	.copyright{
+		background-color: #282b32;
+		color: white;
+		margin-top: 1rem;
+		padding: 0.5rem 0.1rem;
+		text-align: center;
 	}
 }
