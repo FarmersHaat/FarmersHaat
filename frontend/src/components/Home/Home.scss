@@ -42,6 +42,11 @@
 				}
 				.desc {
 					text-align: center;
+
+					strong{
+						line-height: 2rem;
+						font-size: 1.2rem;
+					}
 					@include lg {
 						font-weight: 400;
 						font-size: 1.125rem;

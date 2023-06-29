@@ -15,9 +15,7 @@ import UseAnimations from "react-useanimations";
 import loading from "react-useanimations/lib/loading";
 
 import axios from "axios";
-import { NavLink, useAsyncValue, useNavigate } from "react-router-dom";
-
-
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Footer = () => {
 	const navigate = useNavigate();
@@ -112,15 +110,29 @@ const Footer = () => {
 						for more information.
 						<br />
 						<br />
-						<strong>Marketing Office</strong>
 						<div className="address">
-							Farmers Haat Agrotech
-							<br />
-							33, Cantt Road,
-							<br />
-							1st Floor (Above Bank of Baroda)
-							<br />
-							Lucknow - 226001
+							<div className="marketing">
+								<strong>Marketing Office</strong>
+								<br />
+								Farmers Haat Agrotech
+								<br />
+								33, Cantt Road,
+								<br />
+								1st Floor (Above Bank of Baroda)
+								<br />
+								Lucknow - 226001
+							</div>
+							<div className="registered">
+								<strong>Registered Office</strong>
+								<br />
+								Farmers Haat Agrotech
+								<br />
+								B1/89, Sector K,
+								<br />
+								Aliganj,
+								<br />
+								Lucknow - 226024
+							</div>
 						</div>
 					</div>
 				</div>

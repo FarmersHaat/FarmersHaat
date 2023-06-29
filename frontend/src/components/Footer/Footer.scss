@@ -60,6 +60,13 @@
 					width: 100%;
 				}
 			}
+
+			.desc{
+				.address{
+					display: flex;
+					justify-content: space-between;
+				}
+			}
 		}
 
 		.contactInfo {
