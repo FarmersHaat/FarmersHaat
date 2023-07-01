@@ -177,13 +177,13 @@ const Footer = () => {
 						width="40"
 						height="40"
 						src="https://img.icons8.com/fluency/48/facebook-new.png"
-						alt="facebook-new"
+						alt="facebook-icon"
 					/>
 					<img
 						width="40"
 						height="40"
 						src="https://img.icons8.com/fluency/48/instagram-new.png"
-						alt="instagram-new"
+						alt="instagram-icon"
 					/>
 					<img
 						width="40"
