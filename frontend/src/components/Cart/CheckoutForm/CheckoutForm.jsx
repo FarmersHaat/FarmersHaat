@@ -30,7 +30,7 @@ const CheckoutForm = ({ handlePayment, setIsOpenCheckout }) => {
                 return {
                     ...prevData,
                     city: data[0].PostOffice[0].Region,
-                    state: data[0].PostOffice[0].State,
+                    state: data[0].PostOffice[0].Block,
                 };
             });
             setLocationSet(true);
