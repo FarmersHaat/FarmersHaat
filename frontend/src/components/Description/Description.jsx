@@ -12,11 +12,12 @@ const Description = () => {
 					<p className="topPara">
 						The company has been formed with the sole aim to provide
 						purest form of edible oil which you deserve and we are
-						honest to the core keeping in mind the health of our
-						countrymen and at the same time uplifting the condition
-						of our small marginal farmers and saving precious
-						foreign exchange used to import of edible oil by selling
-						indigenously grown and extracted edible oil in
+						honest to the core keeping in mind the good health of
+						our countrymen . We are also working for the upliftmeant
+						of our small marginal farmers so that they get good
+						price of their produce and indirectly saving precious
+						foreign exchange used to import edible oil by selling
+						indigenously grown and extracted Mustard Oil in
 						traditional way by wood pressed method. The people
 						behind it are drawn from different fields like Research
 						in Rapeseed and Mustard, Medicine, dietician, Qualified

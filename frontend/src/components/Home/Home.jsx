@@ -48,7 +48,7 @@ const Home = ({ scrollTo }) => {
 							<strong>Believe Us!</strong><br />
 							We are committed to provide your family cooking
 							medium with the utmost purity and honesty to the
-							core. Pure mustard oil offers the ideal balance of
+							core.<br />Pure mustard oil offers the ideal balance of
 							Omega-3 and Omega-6 fatty acids, crucial for
 							reducing the risk of heart disease. It also contains
 							disease-fighting antioxidants, which the body cannot
