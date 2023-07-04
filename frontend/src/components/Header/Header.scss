@@ -35,8 +35,16 @@
                 background-color: #F8F7F1;
             }
             .heading{
+                display: flex;
+                justify-content: space-between;
+                gap: 1rem;
+                align-items: center;
                 img{
                     height: 80px;
+                }
+                .logo{
+                    height: 50px;
+                    margin: 0.8rem 0;
                 }
             }
 

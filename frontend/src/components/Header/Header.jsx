@@ -10,6 +10,7 @@ import Cart from "../Cart/Cart";
 import { useNavigate } from "react-router-dom";
 
 import Logo from "../../assets/Logo.png";
+import FH_Logo from "../../assets/FH_Logo.png";
 
 const Header = () => {
 	const navigate = useNavigate();
@@ -27,17 +28,21 @@ const Header = () => {
 				<div className="header-content">
 					<div className="logo">
 						<div
-                            className="heading"
-                        >
-							<img
-								src={Logo}
-								alt="Farmers Haat Logo"
-								onClick={() => {
-									navigate(
-										`${process.env.REACT_APP_INITIAL_DOMAIN}/`
-									);
-								}}
-							/>
+							className="heading"
+							onClick={() => {
+								navigate(
+									`${process.env.REACT_APP_INITIAL_DOMAIN}/`
+								);
+						}}>
+							{screenSize.width > 1024 ? (
+								<img src={Logo} alt="Farmers Haat Logo" />
+							) : (
+								<img
+									src={FH_Logo}
+									alt="Farmers Haat Logo"
+									className="logo"
+								/>
+							)}
 						</div>
 						<div
 							className="menu-button"
