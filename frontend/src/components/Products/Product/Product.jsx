@@ -36,9 +36,9 @@ const Product = ({ product }) => {
             </div>
 
             <div className="offerPrice">
-                <div className="originalPrice">₹{product.attributes.price}</div>
-                <div className="currentPrice">₹{product.attributes.discountedPrice}</div>
-                <div className="discount">{product.attributes.discount}% off</div>
+                <div className="discount">Flat {product.attributes.discount}% off</div>
+                <div className="originalPrice">₹{product.attributes.price}/-</div>
+                <div className="currentPrice">₹{product.attributes.discountedPrice}/-</div>
                 <div className="quantity">1 litre</div>
             </div>
         </div>

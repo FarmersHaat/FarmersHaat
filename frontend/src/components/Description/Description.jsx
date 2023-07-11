@@ -13,7 +13,7 @@ const Description = () => {
 						The company has been formed with the sole aim to provide
 						purest form of edible oil which you deserve and we are
 						honest to the core keeping in mind the good health of
-						our countrymen . We are also working for the upliftmeant
+						our countrymen.<br /> We are also working for the upliftmeant
 						of our small marginal farmers so that they get good
 						price of their produce and indirectly saving precious
 						foreign exchange used to import edible oil by selling

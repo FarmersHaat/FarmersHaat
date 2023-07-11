@@ -5,6 +5,7 @@ import { Context } from "../../utils/context";
 import Logo from "../../assets/Logo.png";
 import UseAnimations from "react-useanimations";
 import loading from "react-useanimations/lib/loading";
+import FssaiLogo from "../../assets/Fssai_Logo.png"
 
 import axios from "axios";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -71,6 +72,10 @@ const Footer = () => {
 								)
 							}
 						/>
+						<div className="fssai">
+							<img src={FssaiLogo} alt="Fssai" />
+							<p>Lic No. 12723999000593</p>
+						</div>
 					</div>
 					<div className="desc">
 						If you have any concerns about your shipment, contact
