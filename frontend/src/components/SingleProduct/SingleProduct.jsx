@@ -46,10 +46,10 @@ const SingleProduct = () => {
                             </div>
                             <div className="price">
                                 ₹{" "}
-                                {data?.data?.[0]?.attributes?.discountedPrice}
+                                {data?.data?.[0]?.attributes?.discountedPrice}{".00"}
                                 <span className="original-price">
                                     {"  "}₹
-                                    {data?.data?.[0]?.attributes?.price}
+                                    {data?.data?.[0]?.attributes?.price}{".00"}
                                 </span>
                                 <span className="discount">
                                     {"   " +

@@ -49,7 +49,7 @@ const CartItem = ({ cartItems }) => {
 								<span className="highlight">
 									₹
 									{product.attributes.quantity *
-										product.attributes.discountedPrice}
+										product.attributes.discountedPrice}{".00"}
 								</span>
 							</div>
 						</div>

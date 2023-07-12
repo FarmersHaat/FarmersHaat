@@ -120,7 +120,7 @@ const Cart = ({ setShowCart }) => {
 							<div className="subtotal">
 								<span className="text">Subtotal : </span>
 								<span className="text total">
-									₹{cartSubtotal}
+									₹{cartSubtotal}{".00"}
 								</span>
 							</div>
 							<div className="button">
