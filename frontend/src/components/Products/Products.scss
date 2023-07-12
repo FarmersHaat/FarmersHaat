@@ -1,6 +1,12 @@
 @import "../../css-config/mixins.scss";
 .product-container {
     width: 100%;
+    .launchDate{
+        margin: 2rem auto;
+        text-align: center;
+        color: gray;
+    }
+
     .products{
         display: flex;
         flex-direction: column;

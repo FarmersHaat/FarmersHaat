@@ -23,6 +23,7 @@ const Products = () => {
 
 	return (
 		<div className="product-container" ref={productRef}>
+			<h3 className="launchDate">The product will be launched in the month of August</h3>
 			<div className="products">
 				{products?.data ? (
 					products.data?.map((product) => {
