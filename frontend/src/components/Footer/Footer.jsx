@@ -5,7 +5,7 @@ import { Context } from "../../utils/context";
 import Logo from "../../assets/Logo.png";
 import UseAnimations from "react-useanimations";
 import loading from "react-useanimations/lib/loading";
-import FssaiLogo from "../../assets/Fssai_Logo.png"
+import FssaiLogo from "../../assets/Fssai_Logo.png";
 
 import axios from "axios";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -78,6 +78,36 @@ const Footer = () => {
 						</div>
 					</div>
 					<div className="desc">
+						Shipping and Delivery Policy
+						<br />
+						The product will be dispatched within 24 working hours
+						from confirmation of your order once the order has been
+						dispatched it will be delivered within 5/7 working days.
+						<br />
+						The delivery is subject to delaying as per the
+						unavoidable circumstances on that location where the
+						delivery to be performed.
+						<br />
+						It is also noted that the delivery of your may also be
+						delayed,in case you location is not covered under the
+						jurisdiction of our courier services.
+						<br />
+						If the address provided by you at the time of placing
+						the order is insufficient or incorrect than the order
+						will be taken by you with making the proper coordination
+						with the delivery personnel/delivery partner,if they are
+						calling on your provided contact number.
+						<br />
+						In case you are not available on your delivery
+						location/your address is improper/your provided phone
+						number is not working at the time of attempting
+						delivery.
+						<br />
+						Your order will be marked as RTO once your placed order
+						marked as RTO and such order has been received by us
+						than your refund will be initiated as per refund policy.
+						<br />
+						<br />
 						If you have any concerns about your shipment, contact
 						our support team at{" "}
 						<a href="mailto:care@farmershaat.com">
