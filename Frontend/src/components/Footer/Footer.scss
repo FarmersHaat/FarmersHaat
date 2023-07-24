@@ -50,7 +50,6 @@
 				}
 				p {
 					font-size: 1rem;
-
 				}
 			}
 
@@ -140,8 +139,10 @@
 		.socialMedia {
 			display: flex;
 			flex-direction: row;
-			justify-content: space-around;
+			gap: 2rem;
+			justify-content: flex-start;
 			font-size: 2rem;
+
 
 			@include lg {
 				height: 1;

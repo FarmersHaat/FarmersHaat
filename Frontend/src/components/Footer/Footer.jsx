@@ -208,24 +208,24 @@ const Footer = () => {
 				</div>
 
 				<div className="socialMedia">
-					<img
+					{/* <img
 						width="40"
 						height="40"
 						src="https://img.icons8.com/fluency/48/facebook-new.png"
 						alt="facebook-icon"
-					/>
-					<img
+					/> */}
+					{/* <img
 						width="40"
 						height="40"
 						src="https://img.icons8.com/fluency/48/instagram-new.png"
 						alt="instagram-icon"
-					/>
-					<img
+					/> */}
+					{/* <img
 						width="40"
 						height="40"
 						src="https://img.icons8.com/color/96/twitter--v1.png"
 						alt="twitter--v1"
-					/>
+					/> */}
 					<a href="https://wa.me/9839011027">
 						<img
 							width="40"
