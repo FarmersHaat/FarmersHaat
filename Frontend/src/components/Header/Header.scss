@@ -1,0 +1,174 @@
+@import "../../css-config/mixins.scss";
+
+.main-header {
+    width: 100%;
+    z-index: 99;
+    padding: 0.2rem 1rem;
+    background-color: #f7c760;
+
+    @include lg {
+        background-color: #F8F7F1;
+    }
+
+    .header-content {
+        display: flex;
+        margin: 0 auto;
+        flex-direction: column;
+        justify-content: space-between;
+        max-width: 95%;
+
+        @include lg {
+            max-width: 80%;
+            flex-direction: row;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f7c760;
+            z-index: 99;
+            cursor: pointer;
+
+            @include lg {
+                background-color: #F8F7F1;
+            }
+            .heading{
+                display: flex;
+                justify-content: space-between;
+                gap: 1rem;
+                align-items: center;
+                img{
+                    height: 80px;
+                }
+                .logo{
+                    height: 50px;
+                    margin: 0.8rem 0;
+                }
+            }
+
+            .menu-button {
+                color:#282B32;
+                font-size: 2rem;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+
+                @include lg {
+                    display: none;
+                }
+
+                &:hover {
+                    transform: scale(1.1);
+                }
+
+                &:active,
+                &:focus {
+                    transform: scale(1);
+                }
+            }
+        }
+
+        .center {
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            padding: 0.5rem;
+            animation-name: navbarAimation;
+            animation-duration: 300ms;
+            text-align: center;
+
+            li {
+                font-size: 0.9rem;
+                font-weight: 500;
+                line-height: 1rem;
+                width: 60%;
+                padding: 0.5rem;
+                cursor: pointer;
+                color: #282B32;
+                border-bottom: 1px solid #4b4a4a;
+
+                @include lg {
+
+                    width: auto;
+                    padding: 0;
+                    animation-duration: 0ms;
+                    border-bottom: none;
+                    font-size: 1rem;
+                    line-height: 1.5rem;
+                    color: #282B32;
+                }
+            }
+
+            @include lg {
+                animation-name: none;
+                gap: 1.5rem;
+                flex-direction: row;
+            }
+
+            @include xl {
+                gap: 3rem;
+            }
+        }
+
+        .right {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            button {
+
+                padding: 0.8rem 2rem;
+                border-radius: 5px;
+                background-color: #282B32;
+                border: none;
+                max-height: 50px;
+
+                font-size: 1.5rem;
+                font-weight: 700;
+                line-height: 1rem;
+                color: #F8F7F1;
+                cursor: pointer;
+                transition-duration: 300ms;
+                position: relative;
+
+                &:hover {
+                    transform: scale(1.1);
+                }
+
+                &:active,
+                &:focus {
+                    background-color: #1c1e23;
+                    transform: scale(1);
+                }
+
+                @include lg {
+                    animation-duration: 0ms;
+                    padding: 0.8rem 2rem;
+                    font-size: 1rem;
+                    line-height: 1.5rem;
+                }
+            }
+        }
+    }
+}
+
+@keyframes navbarAimation {
+    0% {
+        height: 0px;
+        opacity: 0;
+    }
+
+    50% {
+        height: 10vh;
+        opacity: 0.3;
+    }
+
+    100% {
+        height: calc(14vh);
+        opacity: 1;
+    }
+}

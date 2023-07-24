@@ -1,0 +1,79 @@
+@import "../../css-config/mixins.scss";
+
+.payment {
+	width: 100%;
+	.content {
+		width: 90%;
+		padding: 5rem 0;
+		margin: 0 auto;
+		@include md {
+			width: 80%;
+		}
+		.card {
+			display: flex;
+			margin: 0 auto;
+			width: 100%;
+			transition-duration: 300ms;
+			flex-direction: column;
+			align-items: center;
+			gap: 1rem;
+			padding: 4rem 1.3rem;
+			align-content: center;
+			text-align: center;
+			border-radius: 30px;
+			background: #e0e0e0;
+			box-shadow: 15px 15px 30px #bebebe, -15px -15px 30px #ffffff;
+			@include sm {
+				max-width: 500px;
+				padding: 4rem;
+			}
+
+			.title {
+				font-size: 1.5rem;
+				line-height: 1.5rem;
+				font-weight: 700;
+				margin-bottom: 1rem;
+			}
+
+			.subtext {
+				font-size: 1.2rem;
+				line-height: 1.5rem;
+				font-weight: 600;
+				margin-bottom: 0.8rem;
+			}
+
+			button {
+				display: flex;
+				justify-content: center;
+				margin: 0 auto;
+				width: max-content;
+				padding: 1.2rem 2rem;
+				border-radius: 10px;
+				background-color: #282b32;
+				border: none;
+
+				font-size: 1rem;
+				font-weight: 700;
+				line-height: 1rem;
+				color: #f8f7f1;
+				cursor: pointer;
+				transition-duration: 300ms;
+
+				&:hover {
+					transform: scale(1.01);
+				}
+
+				&:active,
+				&:focus {
+					background-color: #000000;
+					transform: scale(1);
+				}
+
+				@include lg {
+					font-size: 1rem;
+					line-height: 1.5rem;
+				}
+			}
+		}
+	}
+}
