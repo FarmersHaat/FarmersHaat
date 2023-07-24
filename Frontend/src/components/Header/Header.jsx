@@ -69,10 +69,10 @@ const Header = () => {
 							<li
 								onClick={() => {
 									navigate(
-										`${process.env.REACT_APP_INITIAL_DOMAIN}/benefits`
+										`${process.env.REACT_APP_INITIAL_DOMAIN}/policy`
 									);
 								}}>
-								Benefits
+								Privacy Policy
 							</li>
 							<li
 								onClick={() => {
