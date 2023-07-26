@@ -13,7 +13,7 @@ import { useLocation } from "react-router-dom";
 
 const Home = ({ scrollTo }) => {
 	const location = useLocation();
-	const { screenSize, productRef, aboutUsRef, footerRef, benefitsRef } =
+	const { screenSize, productRef, aboutUsRef, footerRef, benefitsRef , tipsRef} =
 		useContext(Context);
 
 	useEffect(
@@ -26,6 +26,8 @@ const Home = ({ scrollTo }) => {
 			if (scrollTo === "aboutus") handleScroll(aboutUsRef.current);
 			if (scrollTo === "contactus") handleScroll(footerRef.current);
 			if (scrollTo === "benefits") handleScroll(benefitsRef.current);
+			if (scrollTo === "tips") handleScroll(tipsRef.current);
+
 		},
 		[location]
 	);

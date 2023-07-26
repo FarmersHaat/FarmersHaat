@@ -82,8 +82,8 @@
             text-align: center;
 
             li {
-                font-size: 0.9rem;
-                font-weight: 500;
+                font-size: 0.8rem;
+                font-weight: 600;
                 line-height: 1rem;
                 width: 60%;
                 padding: 0.5rem;
@@ -96,10 +96,16 @@
                     width: auto;
                     padding: 0;
                     animation-duration: 0ms;
-                    border-bottom: none;
+                    border-bottom: 0px;
                     font-size: 1rem;
                     line-height: 1.5rem;
-                    color: #282B32;
+                    color: #6d6d6d;
+                    transition-duration: 300ms;
+
+                    &:hover{
+                        border-bottom: 1px solid #4b4a4a;
+                        color: #191d25;
+                    }
                 }
             }
 
@@ -121,9 +127,9 @@
 
             button {
 
-                padding: 0.8rem 2rem;
+                padding: 0.6rem 1.6rem;
                 border-radius: 5px;
-                background-color: #282B32;
+                background-color:#3e4043;
                 border: none;
                 max-height: 50px;
 
@@ -136,18 +142,16 @@
                 position: relative;
 
                 &:hover {
-                    transform: scale(1.1);
+                    background-color: #101217;
                 }
 
                 &:active,
                 &:focus {
-                    background-color: #1c1e23;
-                    transform: scale(1);
+                    background-color: #101217;
                 }
 
                 @include lg {
                     animation-duration: 0ms;
-                    padding: 0.8rem 2rem;
                     font-size: 1rem;
                     line-height: 1.5rem;
                 }

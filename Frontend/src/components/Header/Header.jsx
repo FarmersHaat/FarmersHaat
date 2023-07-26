@@ -64,15 +64,7 @@ const Header = () => {
 										`${process.env.REACT_APP_INITIAL_DOMAIN}/products`
 									);
 								}}>
-								Product
-							</li>
-							<li
-								onClick={() => {
-									navigate(
-										`${process.env.REACT_APP_INITIAL_DOMAIN}/policy`
-									);
-								}}>
-								Privacy Policy
+								Products
 							</li>
 							<li
 								onClick={() => {
@@ -80,7 +72,7 @@ const Header = () => {
 										`${process.env.REACT_APP_INITIAL_DOMAIN}/desc`
 									);
 								}}>
-								Company Profile
+								About us
 							</li>
 							<li
 								onClick={() => {
@@ -89,6 +81,14 @@ const Header = () => {
 									);
 								}}>
 								Contact Us
+							</li>
+							<li
+								onClick={() => {
+									navigate(
+										`${process.env.REACT_APP_INITIAL_DOMAIN}/tips`
+									);
+								}}>
+								For Homemakers
 							</li>
 						</ul>
 					)}

@@ -1,12 +1,14 @@
 import "./Tips.scss";
 
-import React from "react";
+import React, { useContext } from "react";
 
 import Tip from "./Tip/Tip";
+import { Context } from "../../utils/context";
 
 const Tips = () => {
+    const { tipsRef } = useContext(Context);
     return (
-        <div className="tips">
+        <div className="tips" ref={tipsRef}>
             <h1 className="heading">
                 Nurturing Mustard Oil: Practical Tips for Home Use
             </h1>

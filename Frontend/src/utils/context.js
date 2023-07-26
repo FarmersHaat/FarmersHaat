@@ -13,6 +13,7 @@ const AppContext = ({ children }) => {
 	const aboutUsRef = useRef(null);
 	const footerRef = useRef(null);
 	const benefitsRef = useRef(null);
+	const tipsRef = useRef(null);
 	const navigate = useNavigate();
 
 	const [screenSize, setScreenSize] = useState(getCurrentDimension());
@@ -178,6 +179,7 @@ const AppContext = ({ children }) => {
 				footerRef,
 				aboutUsRef,
 				benefitsRef,
+				tipsRef,
 				handlePayment
 			}}>
 			{children}

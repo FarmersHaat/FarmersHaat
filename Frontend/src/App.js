@@ -44,6 +44,10 @@ function App() {
 						element={<Home scrollTo={"benefits"} />}
 					/>
 					<Route
+						path={`${process.env.REACT_APP_INITIAL_DOMAIN}/tips`}
+						element={<Home scrollTo={"tips"} />}
+					/>
+					<Route
 						path={`${process.env.REACT_APP_INITIAL_DOMAIN}/desc`}
 						element={<Description />}
 					/>

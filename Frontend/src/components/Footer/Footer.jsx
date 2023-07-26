@@ -108,35 +108,6 @@ const Footer = () => {
 						than your refund will be initiated as per refund policy.
 						<br />
 						<br />
-						If you have any concerns about your shipment, contact
-						our support team at{" "}
-						<a href="mailto:care@farmershaat.com">
-							care@farmershaat.com
-						</a>{" "}
-						within 48 hours of receiving the products.
-						<br /> In the event of damaged or wrong products, you
-						can return them within 7 days of delivery by emailing{" "}
-						<a href="mailto:care@farmershaat.com">
-							care@farmershaat.com
-						</a>{" "}
-						with photos of the invoice, product, and order number.
-						We will respond within 48 hours to arrange a
-						replacement.
-						<br />
-						<br /> For prepaid orders, refunds will be initiated
-						within 7 working days upon receiving the refund request.
-						To cancel an order before shipping, email{" "}
-						<a href="mailto:care@farmershaat.com">
-							care@farmershaat.com
-						</a>{" "}
-						, and we'll assist you. Please refer to out{" "}
-						<NavLink
-							to={`${process.env.REACT_APP_INITIAL_DOMAIN}/policy`}>
-							Privacy Policy
-						</NavLink>{" "}
-						for more information.
-						<br />
-						<br />
 						<div className="address">
 							<div className="marketing">
 								<strong>Marketing Office</strong>
@@ -205,43 +176,73 @@ const Footer = () => {
 							"Submit"
 						)}
 					</button>
-				</div>
-
-				<div className="socialMedia">
-					{/* <img
-						width="40"
-						height="40"
-						src="https://img.icons8.com/fluency/48/facebook-new.png"
-						alt="facebook-icon"
-					/> */}
-					{/* <img
-						width="40"
-						height="40"
-						src="https://img.icons8.com/fluency/48/instagram-new.png"
-						alt="instagram-icon"
-					/> */}
-					{/* <img
-						width="40"
-						height="40"
-						src="https://img.icons8.com/color/96/twitter--v1.png"
-						alt="twitter--v1"
-					/> */}
-					<a href="https://wa.me/9839011027">
+					<div className="text">
+						If you have any concerns about your shipment, contact
+						our support team at{" "}
+						<a href="mailto:care@farmershaat.com">
+							care@farmershaat.com
+						</a>{" "}
+						within 48 hours of receiving the products.
+						<br /> In the event of damaged or wrong products, you
+						can return them within 7 days of delivery by emailing{" "}
+						<a href="mailto:care@farmershaat.com">
+							care@farmershaat.com
+						</a>{" "}
+						with photos of the invoice, product, and order number.
+						We will respond within 48 hours to arrange a
+						replacement.
+						<br />
+						<br /> For prepaid orders, refunds will be initiated
+						within 7 working days upon receiving the refund request.
+						To cancel an order before shipping, email{" "}
+						<a href="mailto:care@farmershaat.com">
+							care@farmershaat.com
+						</a>{" "}
+						, and we'll assist you. Please refer to out{" "}
+						<NavLink
+							to={`${process.env.REACT_APP_INITIAL_DOMAIN}/policy`}>
+							Privacy Policy
+						</NavLink>{" "}
+						for more information.
+						<br />
+						<br />
+					</div>
+					<div className="socialMedia">
 						<img
 							width="40"
 							height="40"
-							src="https://img.icons8.com/color/96/whatsapp--v1.png"
-							alt="whatsapp--v1"
+							src="https://img.icons8.com/fluency/48/facebook-new.png"
+							alt="facebook-icon"
 						/>
-					</a>
-					<a href="mailto:care@farmershaat.com">
 						<img
 							width="40"
 							height="40"
-							src="https://img.icons8.com/color/96/gmail-new.png"
-							alt="gmail-new"
+							src="https://img.icons8.com/fluency/48/instagram-new.png"
+							alt="instagram-icon"
 						/>
-					</a>
+						<img
+							width="40"
+							height="40"
+							src="https://img.icons8.com/color/96/twitter--v1.png"
+							alt="twitter--v1"
+						/>
+						<a href="https://wa.me/9839011027">
+							<img
+								width="40"
+								height="40"
+								src="https://img.icons8.com/color/96/whatsapp--v1.png"
+								alt="whatsapp--v1"
+							/>
+						</a>
+						<a href="mailto:care@farmershaat.com">
+							<img
+								width="40"
+								height="40"
+								src="https://img.icons8.com/color/96/gmail-new.png"
+								alt="gmail-new"
+							/>
+						</a>
+					</div>
 				</div>
 			</div>
 			<div className="copyright">
