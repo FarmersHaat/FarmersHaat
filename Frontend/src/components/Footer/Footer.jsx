@@ -78,7 +78,7 @@ const Footer = () => {
 						</div>
 					</div>
 					<div className="desc">
-						Shipping and Delivery Policy
+						<h3>Shipping and Delivery Policy</h3>
 						<br />
 						The product will be dispatched within 24 working hours
 						from confirmation of your order once the order has been
@@ -119,6 +119,10 @@ const Footer = () => {
 								1st Floor (Above Bank of Baroda)
 								<br />
 								Lucknow - 226001
+								<br />
+								Mobile No <a href="tel:9839011027">9839011027</a>
+								<br />
+								WhatsApp <a href="https://wa.me/9839011027">9839011027</a>
 							</div>
 							<div className="registered">
 								<strong>Registered Office</strong>
@@ -202,13 +206,16 @@ const Footer = () => {
 						<NavLink
 							to={`${process.env.REACT_APP_INITIAL_DOMAIN}/policy`}>
 							Privacy Policy
+						</NavLink>{" "} and <NavLink
+							to={`${process.env.REACT_APP_INITIAL_DOMAIN}/terms`}>
+							Terms and Conditions
 						</NavLink>{" "}
 						for more information.
 						<br />
 						<br />
 					</div>
 					<div className="socialMedia">
-						<img
+						{/* <img
 							width="40"
 							height="40"
 							src="https://img.icons8.com/fluency/48/facebook-new.png"
@@ -225,7 +232,7 @@ const Footer = () => {
 							height="40"
 							src="https://img.icons8.com/color/96/twitter--v1.png"
 							alt="twitter--v1"
-						/>
+						/> */}
 						<a href="https://wa.me/9839011027">
 							<img
 								width="40"
@@ -246,7 +253,7 @@ const Footer = () => {
 				</div>
 			</div>
 			<div className="copyright">
-				Copyright © 2023. All rights reserve to Framers Haat Agrotech
+				Copyright © 2023. All rights reserve to Farmers Haat Agrotech
 			</div>
 		</div>
 	);

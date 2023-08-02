@@ -1,10 +1,19 @@
 @import "../../css-config/mixins.scss";
 .product-container {
     width: 100%;
-    .launchDate{
-        margin: 2rem auto;
-        text-align: center;
-        color: gray;
+    // .launchDate{
+    //     margin: 2rem auto;
+    //     text-align: center;
+    //     color: gray;
+    // }
+    display: flex;
+    flex-direction: column;
+
+    .pureTag{
+        width: 100px;
+        height: 100px;
+        margin: 1rem auto;
+        mix-blend-mode: multiply;
     }
     .products{
         display: flex;

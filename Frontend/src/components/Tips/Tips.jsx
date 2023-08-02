@@ -4,6 +4,7 @@ import React, { useContext } from "react";
 
 import Tip from "./Tip/Tip";
 import { Context } from "../../utils/context";
+import Moretips from "../../assets/Moretips.jpg"
 
 const Tips = () => {
     const { tipsRef } = useContext(Context);
@@ -26,7 +27,7 @@ const Tips = () => {
                 <div className="middle">
                     <Tip
                         title={"Usage of Pure Mustard Oil"}
-                        desc={`Use mustard oil in appropriate quantities as pure oil is thicker and is used less as compared with other refined oil and it absorbs less and make your tummy light.`}
+                        desc={`Use mustard oil in appropriate quantities as pure oil is denser and is used less as compared with other refined oil and it absorbs less and make your tummy light.`}
                     />
                     <Tip
                         title={"Pungent order"}

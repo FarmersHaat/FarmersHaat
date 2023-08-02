@@ -56,51 +56,51 @@ const Header = () => {
 							)}
 						</div>
 					</div>
-					{isMenuBarOpen && (
-						<ul className="center">
-							<li
-								onClick={() => {
-									navigate(
-										`${process.env.REACT_APP_INITIAL_DOMAIN}/products`
-									);
-								}}>
-								Products
-							</li>
-							<li
-								onClick={() => {
-									navigate(
-										`${process.env.REACT_APP_INITIAL_DOMAIN}/desc`
-									);
-								}}>
-								About us
-							</li>
-							<li
-								onClick={() => {
-									navigate(
-										`${process.env.REACT_APP_INITIAL_DOMAIN}/contactus`
-									);
-								}}>
-								Contact Us
-							</li>
-							<li
-								onClick={() => {
-									navigate(
-										`${process.env.REACT_APP_INITIAL_DOMAIN}/tips`
-									);
-								}}>
-								For Homemakers
-							</li>
-						</ul>
-					)}
-					{isMenuBarOpen && (
-						<div className="right">
-							<button
-								className="button"
-								onClick={() => setShowCart(!showCart)}>
-								<FaShoppingCart />
-							</button>
+					{isMenuBarOpen &&
+						<div className="menuBar">
+							<ul className="center">
+								<li
+									onClick={() => {
+										navigate(
+											`${process.env.REACT_APP_INITIAL_DOMAIN}/products`
+										);
+									}}>
+									Products
+								</li>
+								<li
+									onClick={() => {
+										navigate(
+											`${process.env.REACT_APP_INITIAL_DOMAIN}/desc`
+										);
+									}}>
+									Company Profile
+								</li>
+								<li
+									onClick={() => {
+										navigate(
+											`${process.env.REACT_APP_INITIAL_DOMAIN}/contactus`
+										);
+									}}>
+									Contact Us
+								</li>
+								<li
+									onClick={() => {
+										navigate(
+											`${process.env.REACT_APP_INITIAL_DOMAIN}/tips`
+										);
+									}}>
+									For Homemakers
+								</li>
+							</ul>
+							<div className="right">
+								<button
+									className="button"
+									onClick={() => setShowCart(!showCart)}>
+									<FaShoppingCart />
+								</button>
+							</div>
 						</div>
-					)}
+					}
 				</div>
 			</div>
 			{showCart && <Cart setShowCart={setShowCart} />}

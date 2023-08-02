@@ -11,6 +11,7 @@ import PaymentUnverified from "./components/PaymentVerify/PaymentUnverified";
 import CheckoutForm from "./components/CheckoutForm/CheckoutForm";
 import AppContext from "./utils/context";
 import { Toaster } from "react-hot-toast";
+import Terms from "./components/Terms/Terms";
 
 function App() {
 	return (
@@ -54,6 +55,10 @@ function App() {
 					<Route
 						path={`${process.env.REACT_APP_INITIAL_DOMAIN}/policy`}
 						element={<PrivacyPolicy />}
+					/>
+					<Route
+						path={`${process.env.REACT_APP_INITIAL_DOMAIN}/terms`}
+						element={<Terms />}
 					/>
 					<Route
 						path={`${process.env.REACT_APP_INITIAL_DOMAIN}/checkout`}

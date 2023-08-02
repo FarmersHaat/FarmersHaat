@@ -7,6 +7,7 @@ import { Context } from "../../utils/context";
 import { fetchData } from "../../utils/api";
 import UseAnimations from "react-useanimations";
 import loading2 from "react-useanimations/lib/loading2";
+import PureImg from "../../assets/Pure.jpg";
 
 const Products = () => {
 	const { products, setProducts, productRef } = useContext(Context);
@@ -23,7 +24,7 @@ const Products = () => {
 
 	return (
 		<div className="product-container" ref={productRef}>
-			<h3 className="launchDate">The product will be launched in the month of August</h3>
+			<img src={PureImg} alt="" className="pureTag" />
 			<div className="products">
 				{products?.data ? (
 					products.data?.map((product) => {

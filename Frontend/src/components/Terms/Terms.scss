@@ -1,0 +1,19 @@
+@import "../../css-config/mixins.scss";
+
+.privacyPolicy{
+    width: 100%;
+    padding: 2rem 0.5rem;
+    @include lg{
+        padding: 2rem;
+    }
+    .content{
+        width: 90%;
+        margin: 0 auto;
+        img{
+            width: 100%;
+        }
+        @include lg{
+            width: 75%;
+        }
+    }
+}

@@ -1,7 +1,6 @@
 import "./PrivacyPolicy.scss";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import TermsAndConditions from "../../assets/TermsAndConditions.pdf"
 const PrivacyPolicy = () => {
 	const location = useLocation();
 	useEffect(() => {
@@ -14,10 +13,6 @@ const PrivacyPolicy = () => {
 		<div className="privacyPolicy">
 			<div className="content">
 				<div className="textContent">
-					<h1>Terms and Condition</h1>
-					<a href={TermsAndConditions}>
-						Terms and Conditions
-					</a>
 					<h1>Privacy Policy</h1>
 					<p>
 						This website (“Site”) is owned and operated by Farmers

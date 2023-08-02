@@ -16,6 +16,7 @@
         flex-direction: column;
         justify-content: space-between;
         max-width: 95%;
+        gap: calc(10%);
 
         @include lg {
             max-width: 80%;
@@ -69,56 +70,68 @@
                 }
             }
         }
-
-        .center {
-            list-style-type: none;
+        .menuBar{
+            flex-grow: 1;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: space-evenly;
-            padding: 0.5rem;
-            animation-name: navbarAimation;
-            animation-duration: 300ms;
-            text-align: center;
+            justify-content: space-between;
 
-            li {
-                font-size: 0.8rem;
-                font-weight: 600;
-                line-height: 1rem;
-                width: 60%;
-                padding: 0.5rem;
-                cursor: pointer;
-                color: #282B32;
-                border-bottom: 1px solid #4b4a4a;
-
-                @include lg {
-
-                    width: auto;
-                    padding: 0;
-                    animation-duration: 0ms;
-                    border-bottom: 0px;
-                    font-size: 1rem;
-                    line-height: 1.5rem;
-                    color: #6d6d6d;
-                    transition-duration: 300ms;
-
-                    &:hover{
-                        border-bottom: 1px solid #4b4a4a;
-                        color: #191d25;
-                    }
-                }
-            }
-
-            @include lg {
-                animation-name: none;
-                gap: 1.5rem;
+            @include lg{
                 flex-direction: row;
             }
-
-            @include xl {
-                gap: 3rem;
+            
+            .center {
+                list-style-type: none;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-evenly;
+                padding: 0.5rem;
+                animation-name: navbarAimation;
+                animation-duration: 300ms;
+                text-align: center;
+    
+    
+                li {
+                    font-size: 0.8rem;
+                    font-weight: 600;
+                    line-height: 1rem;
+                    width: 60%;
+                    padding: 0.5rem;
+                    cursor: pointer;
+                    color: #282B32;
+                    border-bottom: 1px solid #4b4a4a;
+    
+                    @include lg {
+    
+                        width: auto;
+                        padding: 0;
+                        animation-duration: 0ms;
+                        border-bottom: 0px;
+                        font-size: 1rem;
+                        line-height: 1.5rem;
+                        color: #6d6d6d;
+                        transition-duration: 300ms;
+    
+                        &:hover{
+                            border-bottom: 1px solid #4b4a4a;
+                            color: #191d25;
+                        }
+                    }
+                }
+    
+                @include lg {
+                    animation-name: none;
+                    gap: 1.5rem;
+                    flex-direction: row;
+                }
+    
+                @include xl {
+                    gap: 3rem;
+                }
             }
         }
+
 
         .right {
             display: flex;
@@ -162,17 +175,17 @@
 
 @keyframes navbarAimation {
     0% {
-        height: 0px;
+        height: calc(0%);
         opacity: 0;
     }
 
     50% {
-        height: 10vh;
+        height: calc(50%);
         opacity: 0.3;
     }
 
     100% {
-        height: calc(14vh);
+        height: calc(100%);
         opacity: 1;
     }
 }
