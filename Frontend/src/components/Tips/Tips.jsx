@@ -4,7 +4,6 @@ import React, { useContext } from "react";
 
 import Tip from "./Tip/Tip";
 import { Context } from "../../utils/context";
-import Moretips from "../../assets/Moretips.jpg"
 
 const Tips = () => {
     const { tipsRef } = useContext(Context);

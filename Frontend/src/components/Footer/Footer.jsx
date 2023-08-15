@@ -202,13 +202,16 @@ const Footer = () => {
 						<a href="mailto:care@farmershaat.com">
 							care@farmershaat.com
 						</a>{" "}
-						, and we'll assist you. Please refer to out{" "}
+						, and we'll assist you. Please refer to our{" "}
 						<NavLink
 							to={`${process.env.REACT_APP_INITIAL_DOMAIN}/policy`}>
 							Privacy Policy
-						</NavLink>{" "} and <NavLink
+						</NavLink>{" "} , <NavLink
 							to={`${process.env.REACT_APP_INITIAL_DOMAIN}/terms`}>
 							Terms and Conditions
+						</NavLink>{" "} and <NavLink
+							to={`${process.env.REACT_APP_INITIAL_DOMAIN}/disclaimer`}>
+							Disclaimer
 						</NavLink>{" "}
 						for more information.
 						<br />

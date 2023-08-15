@@ -6,12 +6,13 @@ import Home from "./components/Home/Home";
 import SingleProduct from "./components/SingleProduct/SingleProduct";
 import Description from "./components/Description/Description";
 import PrivacyPolicy from "./components/Privacy/PrivacyPolicy";
+import Terms from "./components/Terms/Terms";
+import Disclaimer from "./components/Disclaimer/Disclaimer";
 import PaymentVerified from "./components/PaymentVerify/PaymentVerified";
 import PaymentUnverified from "./components/PaymentVerify/PaymentUnverified";
 import CheckoutForm from "./components/CheckoutForm/CheckoutForm";
 import AppContext from "./utils/context";
 import { Toaster } from "react-hot-toast";
-import Terms from "./components/Terms/Terms";
 
 function App() {
 	return (
@@ -59,6 +60,10 @@ function App() {
 					<Route
 						path={`${process.env.REACT_APP_INITIAL_DOMAIN}/terms`}
 						element={<Terms />}
+					/>
+					<Route
+						path={`${process.env.REACT_APP_INITIAL_DOMAIN}/disclaimer`}
+						element={<Disclaimer />}
 					/>
 					<Route
 						path={`${process.env.REACT_APP_INITIAL_DOMAIN}/checkout`}
