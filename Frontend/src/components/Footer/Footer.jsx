@@ -15,7 +15,9 @@ const Footer = () => {
 	const [isLoading, setIsLoading] = useState(false);
 	const params = {
 		headers: {
-			Authorization: `bearer ${process.env.REACT_APP_STRAPI_APP}`,
+			Authorization: `bearer ${process.env.REACT_APP_NODE_ENV === "DEVELOPMENT"
+			? process.env.REACT_APP_STRAPI_APP_DEV
+			: process.env.REACT_APP_STRAPI_APP}`,
 		},
 	};
 

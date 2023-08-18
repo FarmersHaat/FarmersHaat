@@ -21,17 +21,6 @@
     "price": {
       "type": "decimal"
     },
-    "img": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "discount": {
       "type": "decimal"
     },
