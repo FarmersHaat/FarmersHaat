@@ -16,12 +16,14 @@ To set up a local copy of the project, follow these steps:
     #### `.env` Format
     Frontend
     ```js
-    REACT_APP_STRAPI_APP=[Generate from strapi app (full access token)]
+    REACT_APP_STRAPI_APP=[Generate from strapi app (custom access token)]
+    REACT_APP_STRAPI_APP_DEV=[Generate from strapi app (full access token)]
     REACT_APP_DEV_URL=[For development (localhost:1337)]
     REACT_APP_PRODUCTION_URL=[For Production]
     REACT_APP_INITIAL_DOMAIN=[leave this empty]
     REACT_APP_RAZORPAY_KEY_ID=[Generate from razorpayX test mode]
     REACT_APP_RAZORPAY_SECRET_KEY=[Generate from razorpayX test mode]
+    REACT_APP_NODE_ENV=[Set environment]
     ```
     Backend - [Strapi Docs]( https://docs.strapi.io/dev-docs/configurations/environment)
     ```js
@@ -32,6 +34,7 @@ To set up a local copy of the project, follow these steps:
     API_TOKEN_SALT=
     ADMIN_JWT_SECRET=
     TRANSFER_TOKEN_SALT=
+    JWT_SECRET=
     # Database
     DATABASE_CLIENT=
     DATABASE_HOST=
@@ -40,9 +43,12 @@ To set up a local copy of the project, follow these steps:
     DATABASE_USERNAME=
     DATABASE_PASSWORD=
     DATABASE_SSL=false
-    JWT_SECRET=
     RAZORPAY_KEY_ID=
     RAZORPAY_KEY_SECRET=
+    # Sendgrid 
+    SENDGRID_API_KEY=[Generated from "https://sendgrid.com/"]
+    SENDGRID_FROM_TO=
+    SENDGRID_REPLY_TO=
     ```
 
 ### Usage
@@ -64,7 +70,7 @@ The FarmersHaat project is licensed under the MIT License. Please see the LICENS
 ### Contact
 For any queries or issues related to the project, please contact:
 >Ashutosh Singh
-<br/>Email: [ashusingh1417@gmail.com](mailto:ashusingh1417@gmail.com)
+<br/>Email: [work@ashu-singh.com](mailto:work@ashu-singh.com.com)
 <br/>GitHub: [Ashu0Singh](https://github.com/Ashu0Singh)
 
 Please ensure to create an issue on GitHub for any project-related problems or suggestions.
