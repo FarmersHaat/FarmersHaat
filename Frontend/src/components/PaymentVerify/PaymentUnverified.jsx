@@ -5,9 +5,8 @@ import { useNavigate, Navigate } from "react-router-dom";
 import { Context } from "../../utils/context";
 
 const PaymentUnverified = () => {
-	const { transactionID } = useContext(Context);
 	const navigate = useNavigate();
-	return transactionID ? (
+	return (
 		<div className="payment">
 			<div className="content">
 				<div className="card">
@@ -19,9 +18,6 @@ const PaymentUnverified = () => {
 					/>
 					<div className="subtext">
 						Sorry we were unable to verify your payment
-					</div>
-					<div className="refernceNumber">
-						Your payment id is : {transactionID}
 					</div>
 					<div className="text">
 						Please contact us at{" "}
@@ -36,8 +32,6 @@ const PaymentUnverified = () => {
 				</div>
 			</div>
 		</div>
-	) : (
-		<Navigate to="/products" replace />
 	);
 };
 export default PaymentUnverified;

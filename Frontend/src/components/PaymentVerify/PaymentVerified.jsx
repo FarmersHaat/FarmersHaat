@@ -5,9 +5,9 @@ import { useNavigate, Navigate } from "react-router-dom";
 import { Context } from "../../utils/context";
 
 const PaymentVerified = () => {
-	const { transactionID } = useContext(Context);
+	// const { transactionID } = useContext(Context);
 	const navigate = useNavigate();
-	return transactionID ? (
+	return (
 		<div className="payment">
 			<div className="content">
 				<div className="card">
@@ -19,7 +19,7 @@ const PaymentVerified = () => {
 					/>
 					<div className="subtext">Thank you for your purchase !</div>
 					<div className="refernceNumber">
-						Your payment id is : {transactionID}
+						You will receive and email regarding the same
 					</div>
 					<div className="text">
 						You will receive an order confirmation email with
@@ -31,8 +31,6 @@ const PaymentVerified = () => {
 				</div>
 			</div>
 		</div>
-	) : (
-		<Navigate to="/products" replace />
 	);
 };
 

@@ -18,7 +18,7 @@
     "products": {
       "type": "json"
     },
-    "paymentID": {
+    "orderId": {
       "type": "text",
       "unique": true
     },
@@ -45,6 +45,18 @@
     },
     "zipcode": {
       "type": "string"
+    },
+    "paid": {
+      "type": "boolean"
+    },
+    "status": {
+      "type": "string"
+    },
+    "transactionId": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "float"
     }
   }
 }

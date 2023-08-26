@@ -8,9 +8,10 @@ import Description from "./components/Description/Description";
 import PrivacyPolicy from "./components/Privacy/PrivacyPolicy";
 import Terms from "./components/Terms/Terms";
 import Disclaimer from "./components/Disclaimer/Disclaimer";
+import CheckoutForm from "./components/CheckoutForm/CheckoutForm";
+import Payment from "./components/CheckoutForm/Payment";
 import PaymentVerified from "./components/PaymentVerify/PaymentVerified";
 import PaymentUnverified from "./components/PaymentVerify/PaymentUnverified";
-import CheckoutForm from "./components/CheckoutForm/CheckoutForm";
 import AppContext from "./utils/context";
 import { Toaster } from "react-hot-toast";
 
@@ -68,6 +69,10 @@ function App() {
 					<Route
 						path={`${process.env.REACT_APP_INITIAL_DOMAIN}/checkout`}
 						element={<CheckoutForm />}
+					/>
+					<Route
+						path={`${process.env.REACT_APP_INITIAL_DOMAIN}/payment`}
+						element={<Payment />}
 					/>
 					<Route
 						path={`${process.env.REACT_APP_INITIAL_DOMAIN}/payment/verified`}

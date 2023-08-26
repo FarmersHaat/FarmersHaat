@@ -4,7 +4,7 @@ import { loadRazorpay } from "./loadrazorpay";
 
 import hmacSHA256 from "crypto-js/hmac-sha256";
 import { useNavigate } from "react-router-dom";
-
+import axios from "axios";
 
 export const Context = createContext();
 
@@ -15,18 +15,40 @@ const AppContext = ({ children }) => {
 	const benefitsRef = useRef(null);
 	const tipsRef = useRef(null);
 	const navigate = useNavigate();
-
+	const localData =
+		window.localStorage.getItem("userData") === "undefined"
+			? null
+			: window.localStorage.getItem("userData");
 	const [screenSize, setScreenSize] = useState(getCurrentDimension());
 	const [showCart, setShowCart] = useState(false);
 	const [products, setProducts] = useState({ data: [] });
 	const [cartItems, setCartItems] = useState(
-		window.sessionStorage.getItem("cartItem")	
+		window.sessionStorage.getItem("cartItem")
 			? JSON.parse(window.sessionStorage.getItem("cartItem"))
 			: []
+	);
+	const [userData, setUserData] = useState(
+		localData
+			? JSON.parse(localData)
+			: {
+					firstname: "",
+					lastname: "",
+					email: "",
+					contact: "",
+					address: "",
+					state: "",
+					city: "",
+					zipcode: "",
+			  }
 	);
 	const [cartCount, setCartCount] = useState(0);
 	const [cartSubtotal, setCartSubtotal] = useState(0);
 	const [transactionID, setTransactionID] = useState(null);
+	const [response, setResponse] = useState({
+		txn_url: "",
+		merchantRequest: "",
+		MID: "",
+	});
 
 	useEffect(() => {
 		let count = 0;
@@ -35,13 +57,17 @@ const AppContext = ({ children }) => {
 			count += product.attributes.quantity;
 			subtotal +=
 				product.attributes.quantity *
-				product.attributes.discountedPrice;
+				Math.round(
+					(1 - product.attributes.discount / 100) *
+						product.attributes.price
+				);
 		});
 
 		setCartCount(count);
 		setCartSubtotal(subtotal);
 	}, [cartItems]);
 
+	console.log(cartItems);
 	const handleAddToCart = (product, quantity) => {
 		let items = [...cartItems];
 		let index = items.findIndex((p) => p.id === product.id);
@@ -83,60 +109,72 @@ const AppContext = ({ children }) => {
 			height: window.innerHeight,
 		};
 	}
-
-	const handlePayment = async (userData) => {
+	const handlePayment = async () => {
 		window.localStorage.setItem("userData", JSON.stringify(userData));
 		try {
-			const { data } = await makePaymentRequest.post("/api/orders", {
+			const {
+				data: { txn_url, merchantRequest, MID },
+			} = await makePaymentRequest.post("/api/orders", {
 				products: cartItems,
+				userData,
 			});
-
-			const razorpay = await loadRazorpay();
-
-			const initPayment = (data) => {
-				const options = {
-					key: process.env.REACT_APP_RAZORPAY_KEY_ID,
-					amount: data.amount,
-					currency: data.currency,
-					order_id: data.id,
-					theme: "#FDB620",
-					handler: async (response) => {
-						const generatedSignature = hmacSHA256(
-							`${response.razorpay_order_id}|${response.razorpay_payment_id}`,
-							process.env.REACT_APP_RAZORPAY_SECRET_KEY
-						).toString();
-						if (
-							generatedSignature === response.razorpay_signature
-						) {
-							await makePaymentRequest
-								.post("/api/order/verify", {
-									paymentData: response,
-									userData: userData,
-									productData: cartItems,
-								})
-								.then((isVerified) => {
-									setTransactionID(
-										response.razorpay_payment_id
-									);
-									if (isVerified) {
-										clearCart();
-										navigate("/payment/verified");
-									} else {
-										navigate("/payment/unverified");
-									}
-								})
-								.catch((error) => console.log(error));
-						}
-					},
-				};
-				const rzp1 = new razorpay(options);
-				rzp1.open();
-			};
-
-			initPayment(data.data);
+			return { txn_url, merchantRequest, MID };
 		} catch (error) {
 			console.log(error);
+			return error;
 		}
+
+		// try {
+		// 	const { data } = await makePaymentRequest.post("/api/orders", {
+		// 		products: cartItems,
+		// 	});
+
+		// 	const razorpay = await loadRazorpay();
+
+		// 	const initPayment = (data) => {
+		// 		const options = {
+		// 			key: process.env.REACT_APP_RAZORPAY_KEY_ID,
+		// 			amount: data.amount,
+		// 			currency: data.currency,
+		// 			order_id: data.id,
+		// 			theme: "#FDB620",
+		// 			handler: async (response) => {
+		// 				const generatedSignature = hmacSHA256(
+		// 					`${response.razorpay_order_id}|${response.razorpay_payment_id}`,
+		// 					process.env.REACT_APP_RAZORPAY_SECRET_KEY
+		// 				).toString();
+		// 				if (
+		// 					generatedSignature === response.razorpay_signature
+		// 				) {
+		// 					await makePaymentRequest
+		// 						.post("/api/order/verify", {
+		// 							paymentData: response,
+		// 							userData: userData,
+		// 							productData: cartItems,
+		// 						})
+		// 						.then((isVerified) => {
+		// 							setTransactionID(
+		// 								response.razorpay_payment_id
+		// 							);
+		// 							if (isVerified) {
+		// 								clearCart();
+		// 								navigate("/payment/verified");
+		// 							} else {
+		// 								navigate("/payment/unverified");
+		// 							}
+		// 						})
+		// 						.catch((error) => console.log(error));
+		// 				}
+		// 			},
+		// 		};
+		// 		const rzp1 = new razorpay(options);
+		// 		rzp1.open();
+		// 	};
+
+		// 	initPayment(data.data);
+		// } catch (error) {
+		// 	console.log(error);
+		// }
 	};
 
 	const clearCart = () => {
@@ -169,6 +207,10 @@ const AppContext = ({ children }) => {
 				cartSubtotal,
 				showCart,
 				setShowCart,
+				userData,
+				setUserData,
+				response,
+				setResponse,
 				transactionID,
 				setTransactionID,
 				setCartSubtotal,
@@ -180,7 +222,7 @@ const AppContext = ({ children }) => {
 				aboutUsRef,
 				benefitsRef,
 				tipsRef,
-				handlePayment
+				handlePayment,
 			}}>
 			{children}
 		</Context.Provider>

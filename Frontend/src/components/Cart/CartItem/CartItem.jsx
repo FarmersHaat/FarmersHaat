@@ -49,7 +49,8 @@ const CartItem = ({ cartItems }) => {
 								<span className="highlight">
 									₹
 									{product.attributes.quantity *
-										product.attributes.discountedPrice}{".00"}
+										Math.round((1 - product.attributes.discount / 100) *
+										product.attributes.price)}{".00"}
 								</span>
 							</div>
 						</div>

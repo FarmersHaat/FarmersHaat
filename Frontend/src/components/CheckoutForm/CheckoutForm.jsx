@@ -10,22 +10,12 @@ import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 const CheckoutForm = () => {
+	const navigate = useNavigate();
+
 	const [locationSet, setLocationSet] = useState(false);
-	const [userData, setUserData] = useState(
-		window.localStorage.getItem("userData")
-			? JSON.parse(window.localStorage.getItem("userData"))
-			: {
-					firstname: "",
-					lastname: "",
-					email: "",
-					contact: "",
-					address: "",
-					state: "",
-					city: "",
-					zipcode: "",
-			  }
-	);
-	const { handlePayment } = useContext(Context);
+
+	const { handlePayment, userData, setUserData, setResponse } =
+		useContext(Context);
 	const [buttonState, setButtonState] = useState({
 		isLoading: false,
 		isDisabled: true,
@@ -64,7 +54,12 @@ const CheckoutForm = () => {
 			isLoading: true,
 			isDisabled: true,
 		});
-		await handlePayment(userData);
+		await handlePayment()
+			.then((res) => {
+				setResponse(res);
+				navigate(`${process.env.REACT_APP_INITIAL_DOMAIN}/payment`);
+			})
+			.catch((error) => console.log(error));
 	};
 
 	useEffect(() => {
