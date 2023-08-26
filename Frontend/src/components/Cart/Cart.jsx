@@ -3,15 +3,15 @@ import { MdClose } from "react-icons/md";
 import { BsCartX } from "react-icons/bs";
 
 import CartItem from "./CartItem/CartItem";
-import CheckoutForm from "../CheckoutForm/CheckoutForm";
-import { useContext, useState } from "react";
+// import CheckoutForm from "../CheckoutForm/CheckoutForm";
+import { useContext } from "react";
 import { Context } from "../../utils/context";
 
 import { useNavigate } from "react-router-dom";
 
 const Cart = ({ setShowCart }) => {
 	const navigate = useNavigate();
-	const { cartItems, cartSubtotal, setCartItems, setTransactionID } =
+	const { cartItems, cartSubtotal} =
 		useContext(Context);
 
 	return (

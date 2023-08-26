@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef} from "react";
 import { Context } from "../../utils/context";
-import axios from "axios";
+// import axios from "axios";
 
 const Payment = () => {
 	const { response } = useContext(Context);
