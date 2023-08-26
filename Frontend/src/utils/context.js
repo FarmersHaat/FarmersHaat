@@ -1,10 +1,10 @@
 import { createContext, useState, useEffect, useRef } from "react";
 import { makePaymentRequest } from "./api";
-import { loadRazorpay } from "./loadrazorpay";
+// import { loadRazorpay } from "./loadrazorpay";
 
-import hmacSHA256 from "crypto-js/hmac-sha256";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
+// import hmacSHA256 from "crypto-js/hmac-sha256";
+// import { useNavigate } from "react-router-dom";
+// import axios from "axios";
 
 export const Context = createContext();
 
@@ -14,7 +14,7 @@ const AppContext = ({ children }) => {
 	const footerRef = useRef(null);
 	const benefitsRef = useRef(null);
 	const tipsRef = useRef(null);
-	const navigate = useNavigate();
+	// const navigate = useNavigate();
 	const localData =
 		window.localStorage.getItem("userData") === "undefined"
 			? null
@@ -53,7 +53,7 @@ const AppContext = ({ children }) => {
 	useEffect(() => {
 		let count = 0;
 		let subtotal = 0;
-		cartItems.map((product) => {
+		cartItems.forEach((product) => {
 			count += product.attributes.quantity;
 			subtotal +=
 				product.attributes.quantity *
@@ -199,6 +199,7 @@ const AppContext = ({ children }) => {
 				screenSize,
 				products,
 				setProducts,
+				clearCart,
 				cartItems,
 				setCartItems,
 				cartCount,

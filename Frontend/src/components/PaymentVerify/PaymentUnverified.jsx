@@ -1,8 +1,8 @@
 import "./PaymentStatus.scss";
 
-import React, { useContext } from "react";
-import { useNavigate, Navigate } from "react-router-dom";
-import { Context } from "../../utils/context";
+import React from "react";
+import { useNavigate } from "react-router-dom";
+// import { Context } from "../../utils/context";
 
 const PaymentUnverified = () => {
 	const navigate = useNavigate();
