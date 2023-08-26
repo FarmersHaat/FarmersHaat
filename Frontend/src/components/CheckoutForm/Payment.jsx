@@ -9,7 +9,6 @@ const Payment = () => {
 		formSubmit();
 	}, []);
 	const formSubmit = async () => {
-		console.log(formRef);
 		formRef.current.submit();
 		// await axios({
 		// 	method: "post",

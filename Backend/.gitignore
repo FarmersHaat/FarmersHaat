@@ -115,5 +115,3 @@ build
 .strapi-updater.json
 ca-certificate.crt
 
-
-/ClientAPI.ini

@@ -67,7 +67,6 @@ const AppContext = ({ children }) => {
 		setCartSubtotal(subtotal);
 	}, [cartItems]);
 
-	console.log(cartItems);
 	const handleAddToCart = (product, quantity) => {
 		let items = [...cartItems];
 		let index = items.findIndex((p) => p.id === product.id);

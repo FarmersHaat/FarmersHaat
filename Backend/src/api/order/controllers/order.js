@@ -164,7 +164,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
             user.firstname
           },\nThank yout for shopping from Farmers Haat\nYour order has been confirmed and will be deliverd shortly.\nOrder Id : ${resMsgDTO.getOrderId()}\nWith Regard,\nFarmers Haat,\nwww.farmershaat.com`,
         });
-        ctx.response.redirect("http://localhost:3000/payment/verified");
+        ctx.response.redirect(process.env.REDIRECT_URL+"/payment/verified");
         return;
       } catch (error) {
         ctx.response.status = 500;
@@ -174,7 +174,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
     }
     //Success
     else {
-      ctx.response.redirect("http://localhost:3000/payment/unverified");
+      ctx.response.redirect(process.env.REDIRECT_URL+"/payment/unverified");
       console.log("Failed");
     }
     //Failed
