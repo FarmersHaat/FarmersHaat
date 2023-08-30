@@ -156,10 +156,14 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
           to: user.email,
           from: "care@farmershaat.com",
           replyTo: "care@farmershaat.com",
-          subject: `Hello ${user.firstname}, we've recieved your order!.`,
-          text: `Dear ${
-            user.firstname
-          },\nThank yout for shopping from Farmers Haat\nYour order has been confirmed and will be deliverd shortly.\nOrder Id : ${resMsgDTO.getOrderId()}\nWith Regard,\nFarmers Haat,\nwww.farmershaat.com`,
+          templateId: process.env.TEMPLATE_ID,
+          dynamicTemplateData: {
+            order_ID: user.orderId,
+            userData: {
+              firstname: user.firstname,
+            },
+            amount: user.amount,
+          },
         });
         ctx.response.redirect(process.env.REDIRECT_URL + "/payment/verified");
         return;
