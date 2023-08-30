@@ -119,7 +119,7 @@ const CheckoutForm = () => {
 					<div className="name">
 						<input
 							type="text"
-							placeholder="Firstname"
+							placeholder="First Name"
 							className="firstname"
 							name="firstname"
 							onChange={handleChange}
@@ -127,7 +127,7 @@ const CheckoutForm = () => {
 						/>
 						<input
 							type="text"
-							placeholder="Lastname"
+							placeholder="Last Name"
 							className="lastname"
 							name="lastname"
 							onChange={handleChange}
@@ -162,7 +162,7 @@ const CheckoutForm = () => {
 					/>
 					<input
 						type="text"
-						placeholder="Zipcode"
+						placeholder="Pincode"
 						className="pincode"
 						pattern="\d*"
 						maxLength={6}
