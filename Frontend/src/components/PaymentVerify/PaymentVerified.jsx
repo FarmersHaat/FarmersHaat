@@ -1,10 +1,15 @@
 import "./PaymentStatus.scss";
 
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-// import { Context } from "../../utils/context";
+import { Context } from "../../utils/context";
 
 const PaymentVerified = () => {
+	const { clearCart } = useContext(Context);
+	useEffect(() => {
+		clearCart();
+		return clearCart();
+	},[])
 	// const { transactionID } = useContext(Context);
 	const navigate = useNavigate();
 	return (

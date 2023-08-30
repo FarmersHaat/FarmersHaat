@@ -13,7 +13,6 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
   async create(ctx) {
     const { products, userData } = ctx.request.body;
     // console.log(products);
-    console.log(products);
 
     // console.log(products)
     // console.log(userData);
@@ -62,7 +61,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
       if (reqMsgDTO.getStatusDesc() == "Success") {
         merchantRequest = reqMsgDTO.getReqMsg();
         const txn_url =
-          "https://cgt.in.worldline-solutions.com/ipg/doMEPayRequest"; // for staging
+          "https://cgt.in.worldline-solutions.com/ipg/doMEPayRequest";
         // var txn_url = ini_array.STD_PAY;
         await strapi.service("api::order.order").create({
           data: {
@@ -153,8 +152,6 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
           .query("api::order.order")
           .findOne({ where: { orderId: resMsgDTO.getOrderId() } });
 
-        console.log(user);
-
         await strapi.plugins["email"].services.email.send({
           to: user.email,
           from: "care@farmershaat.com",
@@ -164,7 +161,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
             user.firstname
           },\nThank yout for shopping from Farmers Haat\nYour order has been confirmed and will be deliverd shortly.\nOrder Id : ${resMsgDTO.getOrderId()}\nWith Regard,\nFarmers Haat,\nwww.farmershaat.com`,
         });
-        ctx.response.redirect(process.env.REDIRECT_URL+"/payment/verified");
+        ctx.response.redirect(process.env.REDIRECT_URL + "/payment/verified");
         return;
       } catch (error) {
         ctx.response.status = 500;
@@ -174,7 +171,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
     }
     //Success
     else {
-      ctx.response.redirect(process.env.REDIRECT_URL+"/payment/unverified");
+      ctx.response.redirect(process.env.REDIRECT_URL + "/payment/unverified");
       console.log("Failed");
     }
     //Failed
