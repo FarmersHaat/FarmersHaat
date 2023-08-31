@@ -152,6 +152,21 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
           .query("api::order.order")
           .findOne({ where: { orderId: resMsgDTO.getOrderId() } });
 
+        const products = user.products.map((val) => {
+        //   console.log(val);
+          return {
+            id: val.id,
+            title: val.attributes.title,
+            imgUrl: val.attributes.imgUrl,
+            discount: val.attributes.discount,
+            quantity: `X ${val.attributes.quantity}`,
+            totalAmount: `₹ ${
+              val.attributes.price *
+              (1 - 0.01 * val.attributes.discount) *
+              val.attributes.quantity
+            }`,
+          };
+        });
         await strapi.plugins["email"].services.email.send({
           to: user.email,
           from: "care@farmershaat.com",
@@ -162,9 +177,12 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
             userData: {
               firstname: user.firstname,
             },
-            amount: user.amount,
+            amount: `₹ ${user.amount}`,
+            products: products,
           },
         });
+        // console.log(user.products);
+        // console.log(products);
         ctx.response.redirect(process.env.REDIRECT_URL + "/payment/verified");
         return;
       } catch (error) {
