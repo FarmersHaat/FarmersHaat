@@ -12,10 +12,8 @@ const { createCoreController } = require("@strapi/strapi").factories;
 module.exports = createCoreController("api::order.order", ({ strapi }) => ({
   async create(ctx) {
     const { products, userData } = ctx.request.body;
-    // console.log(products);
-
-    // console.log(products)
-    // console.log(userData);
+    console.log(JSON.stringify(products));
+    console.log(userData);
 
     // Get all the product data :
     const lineItems = await Promise.all(
@@ -60,9 +58,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
       reqMsgDTO = transactMeAPI.generateTrnReqMsg(reqMsgDTO);
       if (reqMsgDTO.getStatusDesc() == "Success") {
         merchantRequest = reqMsgDTO.getReqMsg();
-        const txn_url =
-          "https://cgt.in.worldline-solutions.com/ipg/doMEPayRequest";
-        // var txn_url = ini_array.STD_PAY;
+        const txn_url = process.env.PAYMENT_URL;
         await strapi.service("api::order.order").create({
           data: {
             products: products,
