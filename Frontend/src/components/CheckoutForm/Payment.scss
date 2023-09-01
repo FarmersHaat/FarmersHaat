@@ -1,0 +1,22 @@
+@import "../../css-config/mixins.scss";
+
+.heading {
+	text-align: center;
+	line-height: 2rem;
+}
+
+.loadingAnimation {
+	height: 50vh;
+	width: 100%;
+	padding: 1rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+
+	img {
+		height: 64px;
+		transition: 300ms;
+		margin: 0 auto;
+	}
+}
