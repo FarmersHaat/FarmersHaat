@@ -49,7 +49,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
     reqMsgDTO.setOrderId(orderId);
     reqMsgDTO.setTrnAmt(amt);
     reqMsgDTO.setTrnCurrency(options.currency);
-    reqMsgDTO.setTrnRemarks(JSON.stringify(lineItems));
+    reqMsgDTO.setTrnRemarks("Live Mode");
     reqMsgDTO.setMeTransReqType("S");
     reqMsgDTO.setResponseUrl(ResponseUrl);
 
