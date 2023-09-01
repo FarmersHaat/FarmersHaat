@@ -12,8 +12,8 @@ const { createCoreController } = require("@strapi/strapi").factories;
 module.exports = createCoreController("api::order.order", ({ strapi }) => ({
   async create(ctx) {
     const { products, userData } = ctx.request.body;
-    console.log(JSON.stringify(products));
-    console.log(userData);
+    // console.log(JSON.stringify(products));
+    // console.log(userData);
 
     // Get all the product data :
     const lineItems = await Promise.all(
@@ -49,7 +49,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
     reqMsgDTO.setOrderId(orderId);
     reqMsgDTO.setTrnAmt(amt);
     reqMsgDTO.setTrnCurrency(options.currency);
-    reqMsgDTO.setTrnRemarks("Test Transaction");
+    reqMsgDTO.setTrnRemarks(JSON.stringify(lineItems));
     reqMsgDTO.setMeTransReqType("S");
     reqMsgDTO.setResponseUrl(ResponseUrl);
 
@@ -58,6 +58,8 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
       reqMsgDTO = transactMeAPI.generateTrnReqMsg(reqMsgDTO);
       if (reqMsgDTO.getStatusDesc() == "Success") {
         merchantRequest = reqMsgDTO.getReqMsg();
+        console.log("ReqMsgDTO--------------------------------------------------");
+        console.log(reqMsgDTO);
         const txn_url = process.env.PAYMENT_URL;
         await strapi.service("api::order.order").create({
           data: {
@@ -182,6 +184,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
         ctx.response.redirect(process.env.REDIRECT_URL + "/payment/verified");
         return;
       } catch (error) {
+        
         ctx.response.status = 500;
         return { error };
       }
@@ -189,6 +192,8 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
     }
     //Success
     else {
+      console.log("ReqMsgDTO--------------------------------------------------");
+      console.log(resMsgDTO);
       ctx.response.redirect(process.env.REDIRECT_URL + "/payment/unverified");
       console.log("Failed");
     }

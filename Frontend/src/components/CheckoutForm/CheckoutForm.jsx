@@ -20,6 +20,8 @@ const CheckoutForm = () => {
 		isLoading: false,
 		isDisabled: true,
 	});
+	const emailVerify = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+	const phoneVerification = /^\d{10}$/;
 
 	const getLocation = async () => {
 		setButtonState({
@@ -54,12 +56,22 @@ const CheckoutForm = () => {
 			isLoading: true,
 			isDisabled: true,
 		});
-		await handlePayment()
-			.then((res) => {
-				setResponse(res);
-				navigate(`${process.env.REACT_APP_INITIAL_DOMAIN}/payment`);
-			})
-			.catch((error) => console.log(error));
+		if (emailVerify.test(userData.email)) {
+			if (phoneVerification.test(userData.contact)) {
+				await handlePayment()
+					.then((res) => {
+						setResponse(res);
+						navigate(
+							`${process.env.REACT_APP_INITIAL_DOMAIN}/payment`
+						);
+					})
+					.catch((error) => console.log(error));
+			} else {
+				toast.error("Enter valid phone number");
+			}
+		} else {
+			toast.error("Enter valid email");
+		}
 	};
 
 	useEffect(() => {
