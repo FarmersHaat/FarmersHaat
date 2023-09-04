@@ -9,6 +9,11 @@ const CartItem = ({ cartItems }) => {
 	return (
 		<div className="cart-products">
 			{cartItems.map((product) => {
+				const price = Math.round(
+					(1 - product.attributes.discount / 100) *
+						product.attributes.price *
+						1.05
+				);
 				return (
 					<div key={product.id} className="cart-product">
 						<div className="img-container">
@@ -48,9 +53,8 @@ const CartItem = ({ cartItems }) => {
 								<span>x</span>
 								<span className="highlight">
 									₹
-									{product.attributes.quantity *
-										Math.round((1 - product.attributes.discount / 100) *
-										product.attributes.price)}{".00"}
+									{price}
+									{".00"}
 								</span>
 							</div>
 						</div>

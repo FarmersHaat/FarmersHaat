@@ -7,7 +7,8 @@ import { Context } from "../../../utils/context";
 const Product = ({ product }) => {
 	const navigate = useNavigate();
 	const { handleAddToCart, setShowCart } = useContext(Context);
-
+	const price = Math.round(
+		((1 - product.attributes.discount / 100) * product.attributes.price)*1.05);
 	return (
 		<div
 			className="product-card"
@@ -42,9 +43,7 @@ const Product = ({ product }) => {
 					{".00"}
 				</div>
 				<div className="currentPrice">
-					₹
-					{(1 - product.attributes.discount / 100) *
-						product.attributes.price}
+					₹{price}
 					{".00"}
 				</div>
 				<div className="quantity">1 litre</div>

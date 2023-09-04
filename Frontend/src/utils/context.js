@@ -59,7 +59,8 @@ const AppContext = ({ children }) => {
 				product.attributes.quantity *
 				Math.round(
 					(1 - product.attributes.discount / 100) *
-						product.attributes.price
+						product.attributes.price *
+						1.05
 				);
 		});
 
