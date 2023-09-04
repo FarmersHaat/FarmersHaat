@@ -58,8 +58,8 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
       reqMsgDTO = transactMeAPI.generateTrnReqMsg(reqMsgDTO);
       if (reqMsgDTO.getStatusDesc() == "Success") {
         merchantRequest = reqMsgDTO.getReqMsg();
-        console.log("ReqMsgDTO--------------------------------------------------");
-        console.log(reqMsgDTO);
+        // console.log("ReqMsgDTO--------------------------------------------------");
+        // console.log(reqMsgDTO);
         const txn_url = process.env.PAYMENT_URL;
         await strapi.service("api::order.order").create({
           data: {
@@ -192,8 +192,8 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
     }
     //Success
     else {
-      console.log("ReqMsgDTO--------------------------------------------------");
-      console.log(resMsgDTO);
+      // console.log("ReqMsgDTO--------------------------------------------------");
+      // console.log(resMsgDTO);
       ctx.response.redirect(process.env.REDIRECT_URL + "/payment/unverified");
       console.log("Failed");
     }

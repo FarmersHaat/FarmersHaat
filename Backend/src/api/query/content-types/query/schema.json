@@ -4,7 +4,8 @@
   "info": {
     "singularName": "query",
     "pluralName": "queries",
-    "displayName": "query"
+    "displayName": "query",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -19,6 +20,9 @@
     },
     "query": {
       "type": "text"
+    },
+    "Resolved": {
+      "type": "boolean"
     }
   }
 }
