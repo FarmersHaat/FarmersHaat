@@ -15,9 +15,11 @@ const Footer = () => {
 	const [isLoading, setIsLoading] = useState(false);
 	const params = {
 		headers: {
-			Authorization: `bearer ${process.env.REACT_APP_NODE_ENV === "DEVELOPMENT"
-			? process.env.REACT_APP_STRAPI_APP_DEV
-			: process.env.REACT_APP_STRAPI_APP}`,
+			Authorization: `bearer ${
+				process.env.REACT_APP_NODE_ENV === "DEVELOPMENT"
+					? process.env.REACT_APP_STRAPI_APP_DEV
+					: process.env.REACT_APP_STRAPI_APP
+			}`,
 		},
 	};
 
@@ -122,9 +124,13 @@ const Footer = () => {
 								<br />
 								Lucknow - 226001
 								<br />
-								Mobile No <a href="tel:9839011027">9839011027</a>
+								Mobile No{" "}
+								<a href="tel:9839011027">9839011027</a>
 								<br />
-								WhatsApp <a href="https://wa.me/9839011027">9839011027</a>
+								WhatsApp{" "}
+								<a href="https://wa.me/9839011027">
+									9839011027
+								</a>
 							</div>
 							<div className="registered">
 								<strong>Registered Office</strong>
@@ -208,10 +214,14 @@ const Footer = () => {
 						<NavLink
 							to={`${process.env.REACT_APP_INITIAL_DOMAIN}/policy`}>
 							Privacy Policy
-						</NavLink>{" "} , <NavLink
+						</NavLink>{" "}
+						,{" "}
+						<NavLink
 							to={`${process.env.REACT_APP_INITIAL_DOMAIN}/terms`}>
 							Terms and Conditions
-						</NavLink>{" "} and <NavLink
+						</NavLink>{" "}
+						and{" "}
+						<NavLink
 							to={`${process.env.REACT_APP_INITIAL_DOMAIN}/disclaimer`}>
 							Disclaimer
 						</NavLink>{" "}
@@ -220,12 +230,15 @@ const Footer = () => {
 						<br />
 					</div>
 					<div className="socialMedia">
-						{/* <img
-							width="40"
-							height="40"
-							src="https://img.icons8.com/fluency/48/facebook-new.png"
-							alt="facebook-icon"
-						/>
+						<a href="https://www.facebook.com/people/Farmers-Haat-Agrotech/100094572677256/">
+							<img
+								width="40"
+								height="40"
+								src="https://img.icons8.com/fluency/48/facebook-new.png"
+								alt="facebook-icon"
+							/>
+						</a>
+						{/*
 						<img
 							width="40"
 							height="40"
