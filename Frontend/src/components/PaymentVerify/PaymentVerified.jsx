@@ -23,11 +23,8 @@ const PaymentVerified = () => {
 						alt=""
 					/>
 					<div className="subtext">Thank you for your purchase !</div>
-					<div className="refernceNumber">
-						You will receive and email regarding the same
-					</div>
 					<div className="text">
-						You will receive an order confirmation email with
+						You will receive a confirmation email with
 						details of your order
 					</div>
 					<button onClick={() => navigate("/products")}>

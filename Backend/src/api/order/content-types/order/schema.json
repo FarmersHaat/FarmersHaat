@@ -57,6 +57,9 @@
     },
     "amount": {
       "type": "float"
+    },
+    "trackingId": {
+      "type": "string"
     }
   }
 }
