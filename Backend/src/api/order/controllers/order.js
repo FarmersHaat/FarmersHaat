@@ -24,7 +24,12 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
         return {
           name: item.title,
           currency: "INR",
-          amount: Math.round((1 - item.discount / 100) * item.price * 100),
+          amount:
+            Math.round(
+              (1 - product.attributes.discount / 100) *
+                product.attributes.price *
+                1.05
+            ) * 100,
           quantity: product.attributes.quantity,
         };
       })
@@ -151,7 +156,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
           .findOne({ where: { orderId: resMsgDTO.getOrderId() } });
 
         const products = user.products.map((val) => {
-        //   console.log(val);
+          //   console.log(val);
           return {
             id: val.id,
             title: val.attributes.title,
@@ -179,12 +184,31 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
             products: products,
           },
         });
+        await strapi.plugins["email"].services.email.send({
+          to: "care@farmershaat.com",
+          from: "care@farmershaat.com",
+          replyTo: "care@farmershaat.com",
+          templateId: process.env.TEMPLATE_ID_RECEIVED,
+          dynamicTemplateData: {
+            order_ID: user.orderId,
+            userData: {
+              firstname: user.firstname,
+              phone: user.contact,
+              email: user.email,
+              address: user.address,
+              state: user.state,
+              city: user.city,
+              zipcode: user.zipcode,
+            },
+            amount: `₹ ${user.amount}`,
+            products: products,
+          },
+        });
         // console.log(user.products);
         // console.log(products);
         ctx.response.redirect(process.env.REDIRECT_URL + "/payment/verified");
         return;
       } catch (error) {
-        
         ctx.response.status = 500;
         return { error };
       }
@@ -253,4 +277,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
     // ctx.response.redirect("http://localhost:3000/");
     return { h: "happy" };
   },
+  async update(ctx) {
+    console.log("Updated");
+  }
 }));

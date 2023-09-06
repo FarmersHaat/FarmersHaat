@@ -19,7 +19,7 @@ const Tips = () => {
                         desc={`To remove the pungent aroma, heat the oil until light smoke emerges from it. This process helps enhance the flavor and aroma, making it more enjoyable for cooking`}
                     />
                     <Tip
-                        title={"Store Away from Strong Odors"}
+                        title={"Store Away from Strong Odour"}
                         desc={`Keep your mustard oil away from strong-smelling substances in your pantry to prevent any cross-contamination and preserve its natural aroma.`}
                     />
                 </div>
@@ -29,7 +29,7 @@ const Tips = () => {
                         desc={`Use mustard oil in appropriate quantities as pure oil is denser and is used less as compared with other refined oil and it absorbs less and make your tummy light.`}
                     />
                     <Tip
-                        title={"Pungent order"}
+                        title={"Pungent Odour"}
                         desc={`Mustard oil has a pungent odour and perhaps this is the reason why insects avoid it. Hence it is used as an insect repellant in sprays and also keeps away ants and mosquitoes.`}
                     />
                 </div>
