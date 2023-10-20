@@ -9,7 +9,7 @@ const Product = ({ product }) => {
 	const { handleAddToCart, setShowCart } = useContext(Context);
 	const price = Math.round(
 		((1 - product.attributes.discount / 100) * product.attributes.price)*1.05);
-	const disPrice = product.attributes.price - product.attributes.discount ;
+
 	return (
 		<div
 			className="product-card"
@@ -61,7 +61,7 @@ const Product = ({ product }) => {
 					{".00"}
 				</div>
 				<div className="currentPrice">
-					₹{disPrice}
+					₹{product.attributes.discounted_price}
 					{".00"}
 				</div>
 				<div className="shipping">
