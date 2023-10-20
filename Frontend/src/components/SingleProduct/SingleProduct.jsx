@@ -27,6 +27,7 @@ const SingleProduct = () => {
 	const { data } = useFetch(`/api/products?populate=*&[filters][id]=${id}`);
 	const price = Math.round(
 		((1 - data?.data?.[0]?.attributes?.discount / 100) * data?.data?.[0]?.attributes?.price)*1.05);
+	const dPrice = (data?.data?.[0]?.attributes?.price - data?.data?.[0]?.attributes?.discountedPrice);
 	return (
 		<div className="single-product-main-content">
 			{data !== undefined ? (
@@ -74,8 +75,9 @@ const SingleProduct = () => {
 									{".00"}
 								</span>
 								<span className="discount">
-									{"   " +₹+
-										(data?.data?.[0]?.attributes?.price - data?.data?.[0]?.attributes?.discountedPrice) +
+									{"   " +
+										dPrice
+										+
 										" off"}
 								</span>
 								<div className="saving">
