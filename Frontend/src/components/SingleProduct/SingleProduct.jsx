@@ -45,6 +45,8 @@ const SingleProduct = () => {
 							<div className="desc">
 								{data?.data?.[0]?.attributes?.desc}
 							</div>
+							
+						{product.attributes.discount!==0?
 							<div className="price">
 								₹{" "}
 								{price}
@@ -61,8 +63,28 @@ const SingleProduct = () => {
 								<div className="saving">
 									Inclusive of taxes + Free Shipping
 								</div>
+							   </div>
+							:
+								<div className="price">
+								₹{" "}
+								{data?.data?.[0]?.attributes?.discountedPrice}
+								{".00"}
+								<span className="original-price">
+									{"  "}₹{data?.data?.[0]?.attributes?.price}
+									{".00"}
+								</span>
+								<span className="discount">
+									{"   " +
+										(data?.data?.[0]?.attributes?.price - data?.data?.[0]?.attributes?.discountedPrice) +
+										" off"}
+								</span>
+								<div className="saving">
+									Inclusive of taxes + Free Shipping
+								</div>
 							</div>
+							}
 
+							
 							<div className="cart-buttons">
 								<div className="quantity-buttons">
 									<span
