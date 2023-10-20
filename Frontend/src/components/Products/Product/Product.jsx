@@ -61,7 +61,7 @@ const Product = ({ product }) => {
 					{".00"}
 				</div>
 				<div className="currentPrice">
-					₹{product.attributes.discounted_price}
+					₹{product.attributes.discountedPrice}
 					{".00"}
 				</div>
 				<div className="shipping">
