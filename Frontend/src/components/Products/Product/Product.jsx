@@ -34,6 +34,7 @@ const Product = ({ product }) => {
 				</button>
 			</div>
 
+			{product.attributes.discount!==0?
 			<div className="offerPrice">
 				<div className="discount">
 					Flat {product.attributes.discount}% off
@@ -51,6 +52,22 @@ const Product = ({ product }) => {
 					Inclusive of Taxes + Free Shipping
 				</div>
 			</div>
+				:
+				<div className="offerPrice">
+				
+				<div className="originalPrice">
+					₹{product.attributes.price}
+					{".00"}
+				</div>
+				<div className="currentPrice">
+					₹{price}
+					{".00"}
+				</div>
+				<div className="shipping">
+					Inclusive of Taxes + Free Shipping
+				</div>
+			</div>
+			}
 		</div>
 	);
 };
