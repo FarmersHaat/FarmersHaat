@@ -33,12 +33,12 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
             ) * 100,
             
           quantity: product.attributes.quantity,
-          }else
+          }else {
           name: item.title,
           currency: "INR",
           amount:product.attributes.discountedPrice,
-            
           quantity: product.attributes.quantity,
+            }
         };
       })
     );
