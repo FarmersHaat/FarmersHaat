@@ -22,18 +22,21 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
           .service("api::product.product")
           .findOne(product.id);
         return {
+          if(product.attributes.discount!==0){
           name: item.title,
           currency: "INR",
           amount:
-            {if(product.attributes.discount!==0){
-              Math.round(
+            Math.round(
               (1 - product.attributes.discount / 100) *
                 product.attributes.price *
                 1.05
-            ) * 100
-            }else
-              product.attributes.discountedPrice
-            },
+            ) * 100,
+            
+          quantity: product.attributes.quantity,
+          }else
+          name: item.title,
+          currency: "INR",
+          amount:product.attributes.discountedPrice,
             
           quantity: product.attributes.quantity,
         };
