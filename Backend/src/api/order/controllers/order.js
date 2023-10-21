@@ -24,12 +24,17 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
         return {
           name: item.title,
           currency: "INR",
+          // mks
           amount:
-            Math.round(
+            if(product.attributes.discount!==0){
+          Math.round(
               (1 - product.attributes.discount / 100) *
                 product.attributes.price *
                 1.05
-            ) * 100,
+            ) * 100}
+          else {
+            product.attributes.discountedPrice * 100
+          },
           quantity: product.attributes.quantity,
         };
       })
