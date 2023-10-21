@@ -31,14 +31,14 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
             //     1.05
             // ) * 100,
 
-              if(product.attributes.discount!==0) {
-                Math.round(
-              (1 - product.attributes.discount / 100) *
-                product.attributes.price *
-                1.05) * 100
-              } else {
-                product.attributes.discountedPrice
-              }
+             function(){
+               if(product.attributes.discount !== 0) {
+                return Math.round(
+                  (1 - product.attributes.discount / 100) *
+                  product.attributes.price * 1.05 ) * 100
+               } else {
+                 return product.attributes.discountedPrice
+               }
             ,
           quantity: product.attributes.quantity,
         };
