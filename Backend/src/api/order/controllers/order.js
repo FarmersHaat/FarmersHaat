@@ -22,7 +22,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
           .service("api::product.product")
           .findOne(product.id);
         return {
-          if(product.attributes.discount!==0){
+          {product.attributes.discount!==0?(
           name: item.title,
           currency: "INR",
           amount:
@@ -32,13 +32,13 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
                 1.05
             ) * 100,
             
-          quantity: product.attributes.quantity,
-          }else {
+          quantity: product.attributes.quantity,)
+          : (
           name: item.title,
           currency: "INR",
           amount:product.attributes.discountedPrice,
-          quantity: product.attributes.quantity,
-            }
+          quantity: product.attributes.quantity,)
+          }
         };
       })
     );
