@@ -64,7 +64,6 @@ const AppContext = ({ children }) => {
 						1.05
 				);
 			 :
-
 			 subtotal +=
 				product.attributes.quantity * product.attributes.discountedPrice;
 			 
