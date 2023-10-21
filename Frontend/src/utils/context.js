@@ -55,6 +55,7 @@ const AppContext = ({ children }) => {
 		let subtotal = 0;
 		cartItems.forEach((product) => {
 			count += product.attributes.quantity;
+			{product.attributes.discount!==0?
 			subtotal +=
 				product.attributes.quantity *
 				Math.round(
@@ -62,6 +63,12 @@ const AppContext = ({ children }) => {
 						product.attributes.price *
 						1.05
 				);
+			 :
+
+			 subtotal +=
+				product.attributes.quantity * product.attributes.discountedPrice;
+			 
+			}
 		});
 
 		setCartCount(count);
