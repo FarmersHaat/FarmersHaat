@@ -39,6 +39,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
                } else {
                  return product.attributes.discountedPrice
                }
+             }
             ,
           quantity: product.attributes.quantity,
         };
