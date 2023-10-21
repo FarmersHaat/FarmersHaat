@@ -30,16 +30,16 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
             //     product.attributes.price *
             //     1.05
             // ) * 100,
-            function(){
+
               if(product.attributes.discount!==0) {
-                return Math.round(
+                Math.round(
               (1 - product.attributes.discount / 100) *
                 product.attributes.price *
                 1.05) * 100
               } else {
-                return product.attributes.discountedPrice
+                product.attributes.discountedPrice
               }
-            },
+            ,
           quantity: product.attributes.quantity,
         };
       })
