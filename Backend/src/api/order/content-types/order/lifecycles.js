@@ -18,9 +18,16 @@ module.exports = {
         discount: val.attributes.discount,
         quantity: `X ${val.attributes.quantity}`,
         totalAmount: `₹ ${
-          val.attributes.price *
+
+          {val.attributes.discount!==0?
+             val.attributes.price *
           (1 - 0.01 * val.attributes.discount) *
           val.attributes.quantity
+
+          :
+           val.attributes.discountedPrice * val.attributes.quantity
+        }
+          
         }`,
       };
     });
