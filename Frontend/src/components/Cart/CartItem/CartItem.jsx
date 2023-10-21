@@ -48,15 +48,30 @@ const CartItem = ({ cartItems }) => {
 									+
 								</span>
 							</div>
-							<div className="text">
-								<span>{product.attributes.quantity}</span>
-								<span>x</span>
-								<span className="highlight">
-									₹
-									{price}
-									{".00"}
-								</span>
-							</div>
+							
+							{product.attributes.discount!==0?
+								<div className="text">
+									<span>{product.attributes.quantity}</span>
+									<span>x</span>
+									<span className="highlight">
+										₹
+										{price}
+										{".00"}
+									</span>
+								</div>
+
+							:
+								
+								<div className="text">
+									<span>{product.attributes.quantity}</span>
+									<span>x</span>
+									<span className="highlight">
+										₹
+										{product.attributes.discountedPrice}
+										{".00"}
+									</span>
+								</div>
+							}
 						</div>
 					</div>
 				);
