@@ -32,6 +32,9 @@
     },
     "quantity": {
       "type": "string"
+    },
+    "offer": {
+      "type": "string"
     }
   }
 }

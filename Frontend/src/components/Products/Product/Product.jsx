@@ -3,6 +3,7 @@ import "./Product.scss";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "../../../utils/context";
+import Buy4Get1 from '../../../assets/Buy1Get1Free.png'
 
 const Product = ({ product }) => {
 	const navigate = useNavigate();
@@ -69,6 +70,7 @@ const Product = ({ product }) => {
 				</div>
 			</div>
 			}
+			{product.attributes.offer === 'buy4get1' ? <div className="offers"><img src={Buy4Get1} alt="Buy 4 and Get 1 free" /></div> : ""}
 		</div>
 	);
 };

@@ -132,6 +132,14 @@
 		}
     }
 
+	.offers{
+		position: absolute;
+		margin-left: 200px;
+		img{
+			width: 80px;
+		}
+	}
+
 	&:hover {
 		.thumbnail {
 			img {
