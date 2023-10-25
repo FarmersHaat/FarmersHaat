@@ -48,7 +48,7 @@ const Product = ({ product }) => {
 					₹{price}
 					{".00"}
 				</div>
-				<div className="quantity">1 litre</div>
+				<div className="quantity">{product.attributes.quantity} litre</div>
 				<div className="shipping">
 					Inclusive of Taxes + Free Shipping
 				</div>
