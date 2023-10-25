@@ -29,6 +29,9 @@
     },
     "imgUrl": {
       "type": "string"
+    },
+    "quantity": {
+      "type": "string"
     }
   }
 }
