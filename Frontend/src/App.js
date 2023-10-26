@@ -17,7 +17,8 @@ import { Toaster } from "react-hot-toast";
 import ReactGA from 'react-ga4'
 
 function App() {
-	ReactGA.initialize(process.env.REACT_APP_TRACKING_ID);
+	ReactGA.initialize(process.env.REACT_APP_TRACKING_ID_1);
+	ReactGA.initialize(process.env.REACT_APP_TRACKING_ID_2);
 	ReactGA.send({ hitType: 'pageview', page: "/" });
 	return (
 		<BrowserRouter>
