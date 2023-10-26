@@ -14,8 +14,11 @@ import PaymentVerified from "./components/PaymentVerify/PaymentVerified";
 import PaymentUnverified from "./components/PaymentVerify/PaymentUnverified";
 import AppContext from "./utils/context";
 import { Toaster } from "react-hot-toast";
+import ReactGA from 'react-ga4'
 
 function App() {
+	ReactGA.initialize(process.env.REACT_APP_TRACKING_ID);
+	ReactGA.send({ hitType: 'pageview', page: "/" });
 	return (
 		<BrowserRouter>
 			<AppContext>
