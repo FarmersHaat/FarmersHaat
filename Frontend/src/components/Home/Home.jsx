@@ -45,19 +45,6 @@ const Home = ({ scrollTo }) => {
 	};
 	return (
 		<div className="homepage">
-			<script
-				async
-				src={`https://www.googletagmanager.com/gtag/js?id=${process.env.REACT_APP_TRACKING_ID}`}
-			/>
-			<script
-				dangerouslySetInnerHTML={{
-					__html: `window.dataLayer = window.dataLayer || [];
-				function gtag(){dataLayer.push(arguments);}
-				gtag('js', new Date());
-			  
-				gtag('config', '${process.env.REACT_APP_TRACKING_ID}');`,
-				}}
-			/>
 			<div className="hero-section">
 				<div className="content">
 					<div className="text-content">
