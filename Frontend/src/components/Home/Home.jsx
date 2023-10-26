@@ -13,8 +13,14 @@ import { useLocation } from "react-router-dom";
 
 const Home = ({ scrollTo }) => {
 	const location = useLocation();
-	const { screenSize, productRef, aboutUsRef, footerRef, benefitsRef , tipsRef} =
-		useContext(Context);
+	const {
+		screenSize,
+		productRef,
+		aboutUsRef,
+		footerRef,
+		benefitsRef,
+		tipsRef,
+	} = useContext(Context);
 
 	useEffect(
 		(ref) => {
@@ -27,7 +33,6 @@ const Home = ({ scrollTo }) => {
 			if (scrollTo === "contactus") handleScroll(footerRef.current);
 			if (scrollTo === "benefits") handleScroll(benefitsRef.current);
 			if (scrollTo === "tips") handleScroll(tipsRef.current);
-
 		},
 		[location]
 	);
@@ -40,6 +45,19 @@ const Home = ({ scrollTo }) => {
 	};
 	return (
 		<div className="homepage">
+			<script
+				async
+				src={`https://www.googletagmanager.com/gtag/js?id=${process.env.REACT_APP_TRACKING_ID}`}
+			/>
+			<script
+				dangerouslySetInnerHTML={{
+					__html: `window.dataLayer = window.dataLayer || [];
+				function gtag(){dataLayer.push(arguments);}
+				gtag('js', new Date());
+			  
+				gtag('config', '${process.env.REACT_APP_TRACKING_ID}');`,
+				}}
+			/>
 			<div className="hero-section">
 				<div className="content">
 					<div className="text-content">
@@ -47,12 +65,15 @@ const Home = ({ scrollTo }) => {
 							Experience the Pureness of Wood Pressed Mustard Oil
 						</h1>
 						<p className="desc">
-							<strong>Believe Us!</strong><br />
+							<strong>Believe Us!</strong>
+							<br />
 							We are committed to provide your family cooking
 							medium with the utmost purity and honesty to the
-							core.<br />Pure mustard oil offers the ideal balance of
-							Omega-3 and Omega-6 fatty acids, crucial for
-							reducing the risk of heart disease. It also contains
+							core.
+							<br />
+							Pure mustard oil offers the ideal balance of Omega-3
+							and Omega-6 fatty acids, crucial for reducing the
+							risk of heart disease. It also contains
 							disease-fighting antioxidants, which the body cannot
 							produce in sufficient quantities through normal
 							metabolism.
