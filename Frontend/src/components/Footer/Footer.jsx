@@ -131,6 +131,9 @@ const Footer = () => {
 								<a href="https://wa.me/9839011027">
 									9839011027
 								</a>
+								<a href="https://wa.me/9838790454">
+									9838790454
+								</a>
 							</div>
 							<div className="registered">
 								<strong>Registered Office</strong>
