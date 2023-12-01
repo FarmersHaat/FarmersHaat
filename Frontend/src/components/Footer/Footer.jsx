@@ -130,7 +130,7 @@ const Footer = () => {
 								WhatsApp{" "}
 								<a href="https://wa.me/9839011027">
 									9839011027
-								</a>
+								</a>,{" "}
 								<a href="https://wa.me/9838790454">
 									9838790454
 								</a>
